@@ -7,6 +7,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const country = searchParams.get("country");
   const type = searchParams.get("type");
+  const riskLevel = searchParams.get("riskLevel");
   const q = searchParams.get("q");
   const limitParam = searchParams.get("limit");
   const cursor = searchParams.get("cursor");
@@ -19,6 +20,7 @@ export async function GET(request: Request) {
   const where: any = {};
   if (country) where.country = country;
   if (type) where.type = type;
+  if (riskLevel) where.riskLevel = riskLevel;
   if (q) {
     where.OR = [
       { symbol: { contains: q, mode: "insensitive" } },
@@ -66,5 +68,9 @@ export async function GET(request: Request) {
     };
   });
 
-  return NextResponse.json({ items: data, nextCursor });
+  return NextResponse.json({
+    items: data,
+    nextCursor,
+    meta: { percentUnit: "percent" },
+  });
 }

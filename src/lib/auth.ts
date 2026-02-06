@@ -1,4 +1,4 @@
-import { SignJWT } from "jose";
+import { SignJWT, jwtVerify } from "jose";
 
 const encoder = new TextEncoder();
 
@@ -18,4 +18,13 @@ export async function signUserToken(user: { id: string; email: string }) {
     .setIssuedAt()
     .setExpirationTime("7d")
     .sign(secret);
+}
+
+export async function verifyUserToken(token: string) {
+  const secret = getJwtSecret();
+  const { payload } = await jwtVerify(token, secret);
+  return {
+    userId: payload.sub as string | undefined,
+    email: payload.email as string | undefined,
+  };
 }

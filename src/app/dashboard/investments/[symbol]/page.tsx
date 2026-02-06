@@ -7,6 +7,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/format";
+import { getScoreLabel, scoreAsset } from "@/lib/investments";
 
 type Fundamentals = {
   year: number;
@@ -76,44 +77,14 @@ export default function AssetDetailPage({
     return asset.fundamentals[asset.fundamentals.length - 1];
   }, [asset]);
 
-  const debtToEbitda = useMemo(() => {
-    if (!latest?.dividaLiquida || !latest?.ebitda) return null;
-    return latest.dividaLiquida / latest.ebitda;
-  }, [latest]);
-
   const qualityScore = useMemo(() => {
     if (!asset || !latest) return null;
+    const scored = scoreAsset(asset, latest);
+    const label = getScoreLabel(scored.total);
+    return { ...scored, ...label };
+  }, [asset, latest]);
 
-    const scoreParts = [
-      { label: "ROE ≥ 15%", pass: (latest.roe ?? 0) >= 15 },
-      { label: "Margin ≥ 10%", pass: (latest.margemLiquida ?? 0) >= 10 },
-      {
-        label: "Debt/EBITDA ≤ 3",
-        pass: debtToEbitda !== null && debtToEbitda <= 3,
-      },
-      {
-        label: "Dividend Yield ≥ 2%",
-        pass: (asset.dividendYield ?? 0) >= 2,
-      },
-    ];
-
-    const total = scoreParts.reduce(
-      (sum, part) => sum + (part.pass ? 1 : 0),
-      0,
-    );
-    let label = "Neutral";
-    let tone = "text-yellow-600";
-
-    if (total >= 3) {
-      label = "Attractive";
-      tone = "text-green-600";
-    } else if (total <= 1) {
-      label = "Caution";
-      tone = "text-red-600";
-    }
-
-    return { total, parts: scoreParts, label, tone };
-  }, [asset, latest, debtToEbitda]);
+  const debtToEbitda = qualityScore?.debtToEbitda ?? null;
 
   const currency = asset?.country === "BRAZIL" ? "BRL" : "USD";
 

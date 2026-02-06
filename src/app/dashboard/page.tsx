@@ -5,6 +5,7 @@ import Link from "next/link";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { scoreAsset } from "@/lib/investments";
 
 type Fundamentals = {
   year: number;
@@ -63,26 +64,12 @@ export default function DashboardPage() {
     load();
   }, []);
 
-  const scoreAsset = (asset: Asset) => {
-    const fundamentals = asset.latestFundamentals;
-    const debtToEbitda =
-      fundamentals?.dividaLiquida && fundamentals?.ebitda
-        ? fundamentals.dividaLiquida / fundamentals.ebitda
-        : null;
-
-    const checks = [
-      (fundamentals?.roe ?? 0) >= 15,
-      (fundamentals?.margemLiquida ?? 0) >= 10,
-      debtToEbitda !== null && debtToEbitda <= 3,
-      (asset.dividendYield ?? 0) >= 2,
-    ];
-
-    return checks.reduce((sum, pass) => sum + (pass ? 1 : 0), 0);
-  };
-
   const topPicks = useMemo(() => {
     const scored = assets
-      .map((asset) => ({ asset, score: scoreAsset(asset) }))
+      .map((asset) => ({
+        asset,
+        score: scoreAsset(asset, asset.latestFundamentals).total,
+      }))
       .sort((a, b) => b.score - a.score);
     return scored.slice(0, 6);
   }, [assets]);

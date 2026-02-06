@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatCurrency, formatNumber, formatPercent } from "@/lib/format";
+import { scoreAsset } from "@/lib/investments";
 
 type Fundamentals = {
   year: number;
@@ -55,6 +56,7 @@ export default function InvestmentsPage() {
   const [loading, setLoading] = useState(true);
   const [country, setCountry] = useState("");
   const [type, setType] = useState("");
+  const [risk, setRisk] = useState("");
   const [query, setQuery] = useState("");
 
   const fetchAssets = async () => {
@@ -63,6 +65,7 @@ export default function InvestmentsPage() {
       const params = new URLSearchParams();
       if (country) params.set("country", country);
       if (type) params.set("type", type);
+      if (risk) params.set("riskLevel", risk);
       if (query) params.set("q", query);
       params.set("limit", "100");
 
@@ -79,7 +82,7 @@ export default function InvestmentsPage() {
 
   useEffect(() => {
     fetchAssets();
-  }, [country, type]);
+  }, [country, type, risk]);
 
   const filtered = useMemo(() => {
     if (!query) return items;
@@ -91,23 +94,12 @@ export default function InvestmentsPage() {
     );
   }, [items, query]);
 
-  const scoreAsset = (asset: Asset) => {
-    const fundamentals = asset.latestFundamentals;
-    const debtToEbitda =
-      fundamentals?.dividaLiquida && fundamentals?.ebitda
-        ? fundamentals.dividaLiquida / fundamentals.ebitda
-        : null;
-
-    const checks = [
-      (fundamentals?.roe ?? 0) >= 15,
-      (fundamentals?.margemLiquida ?? 0) >= 10,
-      debtToEbitda !== null && debtToEbitda <= 3,
-      (asset.dividendYield ?? 0) >= 2,
-    ];
-
-    const total = checks.reduce((sum, pass) => sum + (pass ? 1 : 0), 0);
-    return total;
-  };
+  const riskOptions = [
+    { value: "", label: "All risk levels" },
+    { value: "Low", label: "Low" },
+    { value: "Medium", label: "Medium" },
+    { value: "High", label: "High" },
+  ];
 
   return (
     <ProtectedRoute>
@@ -134,7 +126,7 @@ export default function InvestmentsPage() {
             <CardHeader>
               <CardTitle>Filters</CardTitle>
             </CardHeader>
-            <CardContent className="grid gap-4 md:grid-cols-3">
+            <CardContent className="grid gap-4 md:grid-cols-4">
               <div className="space-y-2">
                 <Label htmlFor="country">Country</Label>
                 <select
@@ -159,6 +151,21 @@ export default function InvestmentsPage() {
                   onChange={(e) => setType(e.target.value)}
                 >
                   {typeOptions.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {opt.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="risk">Risk</Label>
+                <select
+                  id="risk"
+                  className="w-full border border-input rounded-md h-10 px-3 bg-background"
+                  value={risk}
+                  onChange={(e) => setRisk(e.target.value)}
+                >
+                  {riskOptions.map((opt) => (
                     <option key={opt.value} value={opt.value}>
                       {opt.label}
                     </option>
@@ -213,7 +220,10 @@ export default function InvestmentsPage() {
 
                         const currency =
                           asset.country === "USA" ? "USD" : "BRL";
-                        const score = scoreAsset(asset);
+                        const score = scoreAsset(
+                          asset,
+                          asset.latestFundamentals,
+                        ).total;
 
                         return (
                           <tr key={asset.id} className="border-b last:border-0">
