@@ -8,97 +8,106 @@
     "investments": "Investimentos"
   },
   "hero": {
-    "badge": "🔥 Convertendo 3x Melhor que a Média do Mercado",
-    "title": "Transforme Seu Tráfego em",
-    "titleHighlight": "Clientes Pagantes",
-    "description": "Soluções completas de marketing digital que convertem visitantes em compradores. De copywriting a landing pages, criação de vídeos a campanhas de anúncios -",
-    "descriptionHighlight": "tudo em um só lugar.",
-    "ctaPrimary": "Agende Sua Consultoria Gratuita",
-    "ctaSecondary": "Assista Casos de Sucesso",
+    "badge": "🚀 Engenharia de Produto Encontra Psicologia de Vendas",
+    "title": "Projetado para Crescimento",
+    "description": "Base Logic Labs é um estúdio especializado em parceria com empresas globais para arquitetar aplicações web escaláveis que geram resultados de negócio mensuráveis",
+    "ctaPrimary": "Ver Portfolio",
+    "ctaSecondary": "Agendar Estratégia",
     "socialProof": {
-      "clients": "Clientes Satisfeitos",
-      "revenue": "Faturado",
-      "roi": "ROI Médio"
+      "leadership": "20+ Anos de Experiência em Liderança",
+      "champion": "2x Campeão Mundial de BJJ",
+      "global": "3 Países, 2 Continentes"
     }
   },
-  "clients": {
-    "title": "Confiado por Empresas Líderes"
-  },
   "services": {
-    "badge": "Solução Completa",
-    "title": "Tudo o Que Você Precisa Para",
-    "titleHighlight": "Escalar Seu Negócio",
-    "description": "Pare de fazer malabarismos com várias agências. Tenha copywriting, desenvolvimento web, criação de vídeos e gestão de anúncios de uma equipe especializada.",
-    "copywriting": {
-      "title": "Copywriting Que Converte",
-      "description": "Gatilhos psicológicos e textos persuasivos que transformam visitantes em compradores",
-      "features": ["Cartas de vendas", "Sequências de email", "Copy para anúncios", "Scripts de VSL"]
+    "badge": "Serviços Principais",
+    "title": "Onde Engenharia Encontra",
+    "titleHighlight": "Crescimento do Negócio",
+    "description": "Engenharia de produto que combina excelência técnica com estratégia de negócios",
+    "fullStack": {
+      "title": "Arquitetura Full Stack",
+      "description": "Aplicações web de nível empresarial construídas com Next.js, Node.js e PostgreSQL. Escaláveis, seguras e otimizadas para performance.",
+      "features": [
+        "Next.js & React",
+        "Backend Node.js",
+        "Banco de Dados PostgreSQL",
+        "Design de API"
+      ]
     },
-    "landingPages": {
-      "title": "Landing Pages & Funis",
-      "description": "Landing pages de alta conversão otimizadas para Facebook Ads e Google Ads",
-      "features": ["Otimizado mobile", "Testado A/B", "Carregamento rápido", "Analytics integrado"]
+    "conversion": {
+      "title": "Engenharia de Conversão",
+      "description": "Usando psicologia para reduzir churn e aumentar retenção de usuários. Cada decisão de interface é respaldada por ciência comportamental.",
+      "features": [
+        "UX Orientado por Psicologia",
+        "Estratégias de Retenção",
+        "Otimização de Conversão",
+        "Framework de Testes A/B"
+      ]
     },
-    "videoCreation": {
-      "title": "Criação de Vídeo & Imagem",
-      "description": "Vídeos de vendas profissionais e visuais impressionantes que vendem",
-      "features": ["Produção de VSL", "Edição de imagem", "Conteúdo para redes", "Criativos para anúncios"]
-    },
-    "digitalMarketing": {
-      "title": "Marketing Digital Completo",
-      "description": "Campanhas completas da criação de anúncios à integração com Hotmart",
-      "features": ["Setup de campanhas", "Segmentação de público", "Tracking de conversão", "Otimização de ROI"]
+    "speed": {
+      "title": "Velocidade ao Mercado",
+      "description": "Fluxos de trabalho aprimorados por IA para entrega rápida de MVP. Chegue ao mercado mais rápido com frameworks comprovados e automação.",
+      "features": [
+        "Desenvolvimento Rápido de MVP",
+        "Workflows Aprimorados por IA",
+        "Metodologia Ágil",
+        "Implantação Contínua"
+      ]
     }
   },
   "technologies": {
-    "badge": "Tecnologia de Ponta",
-    "title": "Construído Com as",
-    "titleHighlight": "Mais Recentes Tecnologias",
-    "description": "Usamos as ferramentas mais avançadas para garantir que suas campanhas tenham o máximo desempenho",
+    "badge": "Stack de Nível Empresarial",
+    "title": "Tecnologia de",
+    "titleHighlight": "Nível Empresarial",
+    "description": "Tecnologias modernas, escaláveis e testadas em batalha alimentando empresas Fortune 500",
     "items": {
-      "react": "Desenvolvimento web ultrarrápido",
-      "tailwind": "Designs bonitos e responsivos",
-      "shadcn": "Biblioteca de componentes moderna",
-      "facebook": "Campanhas publicitárias direcionadas",
-      "google": "Publicidade de busca e display",
-      "hotmart": "Funis de vendas para produtos digitais",
-      "video": "Conteúdo de vídeo profissional",
-      "landing": "Páginas de vendas de alta conversão"
+      "nextjs": "Framework React empresarial",
+      "typescript": "Desenvolvimento type-safe",
+      "postgresql": "Banco de dados de produção",
+      "prisma": "ORM type-safe",
+      "tailwind": "CSS utility-first",
+      "shadcn": "Componentes acessíveis",
+      "stripe": "Infraestrutura de pagamento",
+      "vercel": "Implantação edge para performance ideal"
     }
   },
   "testimonials": {
-    "badge": "Resultados Reais",
-    "title": "O Que Nossos Clientes Dizem Sobre",
-    "titleHighlight": "Trabalhar Conosco",
+    "badge": "⭐ Depoimentos",
+    "title": "O Que Nossos Clientes",
+    "titleHighlight": "Dizem Sobre Trabalhar Conosco",
     "items": [
       {
-        "name": "Maria Santos",
-        "company": "Fitness Digital",
-        "text": "Ismael aumentou nossa taxa de conversão em 340% em apenas 30 dias. Suas landing pages são puro ouro!",
-        "result": "+340% conversões"
+        "name": "Jackie Souto",
+        "company": "Jackie Souto Academy",
+        "text": "Ismael construiu uma plataforma SaaS completa para minha academia com integração de pagamento, gerenciamento de cursos e autenticação de usuários. A execução técnica foi impecável.",
+        "result": "300+ Alunos Ativos"
       },
       {
-        "name": "Carlos Rodriguez",
-        "company": "Tech Startup",
-        "text": "O VSL que o Ismael criou para nós gerou mais de R$150k no primeiro mês. ROI incrível!",
-        "result": "R$150k em 30 dias"
+        "name": "BJJ Championship",
+        "company": "Campeonatos Mundiais de BJJ",
+        "text": "A plataforma BJJChamp agora gerencia mais de 10 mil usuários mensais com dados em tempo real e permissões complexas baseadas em funções. Engenharia de produto excepcional.",
+        "result": "10 mil+ Usuários Mensais"
       },
       {
-        "name": "Ana Costa",
-        "company": "Criadora de Curso Online",
-        "text": "Suas habilidades de copywriting são incomparáveis. Cada sequência de email que ele escreve gera vendas.",
-        "result": "+250% receita email"
+        "name": "Soute Doces",
+        "company": "Plataforma de E-commerce",
+        "text": "A otimização de performance da nossa plataforma de e-commerce foi incrível. Pontuação Lighthouse acima de 90 e as vendas aumentaram 180%.",
+        "result": "180% Aumento nas Vendas"
       }
     ]
   },
   "cta": {
-    "badge": "🚨 Oferta Por Tempo Limitado",
-    "title": "Pronto Para",
-    "titleHighlight": "10x Suas Conversões?",
-    "description": "Agende sua consultoria gratuita agora e descubra como podemos transformar seu tráfego em uma máquina geradora de lucros. Sem enrolação, apenas estratégias comprovadas que funcionam.",
-    "button": "Agende Sua Consultoria GRATUITA",
-    "urgency": "⏰ Apenas 5 vagas disponíveis esta semana",
-    "guarantees": ["100% Consultoria Gratuita", "Plano de Estratégia Personalizado", "Sem Compromisso"]
+    "badge": "🚀 Pronto para Começar?",
+    "title": "Pronto para Transformar Seu",
+    "titleHighlight": "Negócio?",
+    "description": "Comece hoje e transforme seu negócio com estratégias comprovadas de marketing digital que entregam resultados reais.",
+    "button": "Começar Agora",
+    "urgency": "Oferta por tempo limitado - Aja agora!",
+    "guarantees": [
+      "Garantia de reembolso de 30 dias",
+      "Suporte 24/7",
+      "Resultados em 30 dias"
+    ]
   },
   "contact": {
     "title": "Entre em Contato",
@@ -108,9 +117,9 @@
       "name": "Nome Completo",
       "namePlaceholder": "Seu nome completo",
       "email": "Endereço de Email",
-      "emailPlaceholder": "hi@ismaelsilva.com",
+      "emailPlaceholder": "seu@email.com",
       "phone": "Número de Telefone",
-      "phonePlaceholder": "Somente para clientes atuais",
+      "phonePlaceholder": "+55 (11) 98765-4321",
       "message": "Detalhes do Projeto",
       "messagePlaceholder": "Conte-nos sobre seu projeto, objetivos e cronograma...",
       "submit": "Enviar Mensagem",
@@ -137,121 +146,125 @@
     ]
   },
   "footer": {
-    "title": "Ismael Silva - Especialista em Marketing Digital",
-    "description": "Transformando negócios através de copy de alta conversão e tecnologia de ponta",
+    "title": "Vamos Trabalhar Juntos",
+    "description": "Pronto para levar seu negócio ao próximo nível? Entre em contato hoje.",
     "links": {
-      "contact": "Entre em Contato",
+      "contact": "Contato",
       "about": "Saiba Mais Sobre Nós",
-      "dashboard": "Portal do Cliente"
+      "portfolio": "Portfolio"
     }
   },
   "about": {
-    "badge": "Sobre a ismaCopy",
+    "badge": "Sobre Base Logic Labs",
     "hero": {
-      "title": "De Palestrante Motivacional a",
-      "titleHighlight": "Especialista em Soluções Digitais",
-      "description": "Minha jornada de ganhar mais de $100K como palestrante motivacional para dominar desenvolvimento fullstack e copywriting de conversão."
+      "title": "O Homem Por Trás",
+      "titleHighlight": "Do Código",
+      "subtitle": "20 Anos Liderando Comunidades, Agora Projetando Produtos Que Escalam",
+      "description": "De pastor a engenheiro de produto: trazendo pensamento centrado nas pessoas para excelência técnica"
     },
-    "journey": {
-      "title": "A Jornada",
-      "subtitle": "Do palco à tela: Como transformei desafios em expertise",
-      "steps": {
-        "beginning": {
-          "title": "O Começo",
-          "period": "2018-2020",
-          "description": "Comecei como palestrante motivacional na Nova Zelândia, ganhando mais de $100K anuais através de apresentações e workshops poderosos."
+    "story": {
+      "title": "De Pessoas para Produtos",
+      "subtitle": "Uma Jornada Única na Tecnologia",
+      "intro": "A maioria dos desenvolvedores vem de diplomas em Ciência da Computação. Eu vim de 20 anos de liderança pastoral, construção de comunidades e atletismo de campeonato. Essa diferença é minha vantagem.",
+      "sections": {
+        "leadership": {
+          "title": "20 Anos de Liderança",
+          "period": "2003-2023",
+          "description": "Duas décadas como pastor e líder comunitário me ensinaram como as pessoas pensam, tomam decisões e o que impulsiona o comportamento. Isso não é teoria de livro didático - é compreensão do mundo real da psicologia humana aplicada a cada produto que construo."
         },
-        "pivot": {
-          "title": "A Mudança",
-          "period": "2020-2021",
-          "description": "COVID-19 mudou tudo. Locais fecharam, palestras desapareceram. Tive que me reinventar no mundo digital."
+        "product": {
+          "title": "Mentalidade de Produto, Não Apenas Código",
+          "description": "Não escrevo apenas código que funciona. Construo produtos que as pessoas querem usar. Cada escolha de interface, cada fluxo de usuário, cada interação é projetada com profunda compreensão do comportamento humano e tomada de decisão."
         },
-        "evolution": {
-          "title": "A Evolução",
-          "period": "2021-2023",
-          "description": "Dominei JavaScript, React, Node.js e copywriting. As mesmas habilidades que me fizeram bem-sucedido no palco agora impulsionam o sucesso digital."
+        "champion": {
+          "title": "2x Campeão Mundial de BJJ",
+          "description": "Competir nos mais altos níveis do Jiu-Jitsu Brasileiro me ensinou disciplina, pensamento estratégico e como performar sob pressão. O mesmo framework mental que ganha campeonatos constrói produtos de sucesso."
         },
-        "ismaCopy": {
-          "title": "ismaCopy Nasce",
-          "period": "2024-Presente",
-          "description": "Combinei expertise em desenvolvimento com habilidades de escrita persuasiva para criar soluções digitais de alta conversão para empresas."
+        "global": {
+          "title": "Perspectiva Global",
+          "description": "Nascido no Brasil, construí uma vida na Nova Zelândia, atendendo clientes nos EUA e além. Essa experiência multicultural significa que entendo mercados diversos, estilos de comunicação e práticas de negócios."
         }
       }
     },
-    "personal": {
-      "name": "Ismael Silva",
-      "title": "Fundador & Desenvolvedor Full Stack",
-      "story": {
-        "paragraph1": "Antes da COVID-19, eu estava vivendo o sonho como palestrante motivacional na Nova Zelândia, ganhando mais de $100.000 anuais. Viajava pelo país, falando para auditórios lotados, ajudando pessoas a transformar suas mentalidades e alcançar seus objetivos. O palco era meu mundo, e eu estava prosperando.",
-        "paragraph2": "Então março de 2020 aconteceu. Da noite para o dia, eventos de palestras foram cancelados. Locais fecharam. A indústria que eu havia dominado de repente desapareceu. Como milhões de outros, enfrentei um futuro incerto. Mas ao invés de ver como um fim, vi como um começo.",
-        "paragraph3": "Me dediquei a aprender JavaScript, React, Node.js e TypeScript. A mesma disciplina e habilidades de comunicação que me fizeram bem-sucedido no palco se tornaram minhas armas secretas no mundo digital. Descobri que falar de forma persuasiva e programar efetivamente não são tão diferentes – ambos requerem clareza, lógica e a capacidade de resolver problemas.",
-        "paragraph4": "Hoje, a ismaCopy combina minha experiência como palestrante com habilidades de desenvolvimento de ponta. Crio soluções digitais que não apenas funcionam – elas persuadem, convertem e fazem empresas crescer. Dos palcos da Nova Zelândia às telas globais, a missão permanece a mesma: ajudar outros a ter sucesso."
+    "services": {
+      "title": "O Que Eu Construo",
+      "subtitle": "3 Serviços Principais, 1 Abordagem Unificada",
+      "saas": {
+        "title": "Desenvolvimento de SaaS Personalizado",
+        "description": "Aplicações web full-stack que escalam. De MVP a plataformas de nível empresarial com autenticação, pagamentos e fluxos de dados complexos."
+      },
+      "ai": {
+        "title": "Integração de IA e Automação",
+        "description": "Automação inteligente que economiza tempo e aumenta eficiência. De recursos impulsionados por IA a otimização de fluxo de trabalho que multiplica resultados."
+      },
+      "ux": {
+        "title": "UI/UX Orientado para Conversão",
+        "description": "Interfaces projetadas para converter. Design respaldado por psicologia que guia usuários naturalmente em direção às ações desejadas enquanto parece sem esforço."
       }
     },
-    "services": {
-      "title": "O Que Faço",
-      "subtitle": "Combinando excelência técnica com comunicação persuasiva",
-      "development": {
-        "title": "Desenvolvimento Fullstack",
-        "description": "Aplicações web modernas construídas com React, Next.js e Node.js que performam excepcionalmente e escalam sem esforço.",
-        "features": ["Aplicações React & Next.js", "APIs Backend & Bancos de Dados", "Design Responsivo", "Otimização de Performance", "Desenvolvimento TypeScript", "Deploy em Nuvem"]
+    "timeline": {
+      "title": "A Jornada",
+      "brazil": {
+        "title": "Brasil",
+        "period": "1985-2010",
+        "description": "Nascido e criado no Brasil. Comecei na liderança pastoral, tornei-me 2x Campeão Mundial de BJJ"
       },
-      "copywriting": {
-        "title": "Copywriting de Conversão",
-        "description": "Mensagens estratégicas que transformam visitantes em clientes, combinando gatilhos psicológicos com comunicação clara.",
-        "features": ["Copy para Páginas de Venda", "Sequências de Email", "Otimização de Landing Pages", "Desenvolvimento de Voz da Marca", "Testes A/B", "Estratégia de Conversão"]
+      "newzealand": {
+        "title": "Nova Zelândia",
+        "period": "2010-Presente",
+        "description": "Mudei para Auckland. Continuei o trabalho ministerial enquanto dominava desenvolvimento fullstack"
       },
-      "strategy": {
-        "title": "Estratégia Digital",
-        "description": "Soluções digitais completas que alinham tecnologia com objetivos de negócio para crescimento mensurável e sucesso.",
-        "features": ["Transformação Digital", "Estratégia de Crescimento", "Analytics & Rastreamento", "Design de Experiência do Usuário", "Automação de Marketing", "Análise de Performance"]
+      "tech": {
+        "title": "Tech em Tempo Integral",
+        "period": "2020-Presente",
+        "description": "Transição completa para engenharia de produto. Combinando 20 anos de habilidades com pessoas com tecnologia de ponta"
       }
     },
     "values": {
       "title": "Valores Fundamentais",
-      "subtitle": "O que impulsiona cada projeto e parceria",
-      "clientFocused": {
-        "title": "Foco no Cliente",
-        "description": "Toda solução é personalizada para suas necessidades, objetivos e audiência específicos. Seu sucesso é a única métrica que importa."
+      "subtitle": "O que impulsiona cada projeto",
+      "business": {
+        "title": "Mentalidade Business-First",
+        "description": "Tecnologia serve objetivos de negócio. Cada decisão técnica é avaliada contra ROI e impacto no usuário."
       },
-      "globalMindset": {
-        "title": "Mentalidade Global",
-        "description": "Experiência na Nova Zelândia, Brasil e EUA traz perspectivas diversas para cada projeto."
+      "global": {
+        "title": "Perspectiva Global",
+        "description": "Experiência no Brasil, NZ e EUA traz pensamento diverso para cada desafio."
       },
-      "innovation": {
-        "title": "Inovação",
-        "description": "Sempre à frente com as últimas tecnologias e estratégias para dar a você uma vantagem competitiva."
+      "excellence": {
+        "title": "Excelência no Produto",
+        "description": "Código limpo, UX bem pensado e engenharia que escala. Sem atalhos, apenas trabalho de qualidade."
       }
     },
     "cta": {
-      "title": "Pronto para Transformar Seu Negócio?",
-      "description": "Vamos discutir como podemos criar soluções digitais que geram resultados reais para seu negócio.",
-      "strategyCall": "Agendar Chamada Estratégica",
-      "portfolio": "Ver Nosso Portfólio"
+      "title": "Pronto para Construir Algo Incrível?",
+      "description": "Vamos discutir sua visão de produto e criar algo que os usuários amem.",
+      "strategyCall": "Agendar Estratégia",
+      "portfolio": "Ver Portfolio"
     }
   },
   "servicesPage": {
-    "title": "Nossos Serviços",
-    "subtitle": "Soluções completas de marketing digital que geram resultados",
-    "badge": "Resultados Comprovados • 100+ Projetos • R$5M+ Receita dos Clientes",
-    "description": "Seu site deveria ser seu melhor vendedor. Se não está convertendo visitantes em clientes, você está perdendo dinheiro todos os dias.",
+    "badge": "Serviços",
+    "title": "Engenharia de Produto",
+    "titleHighlight": "Que Impulsiona Crescimento",
+    "subtitle": "Excelência Técnica Encontra Estratégia de Negócios",
+    "description": "Três serviços principais projetados para levar seu produto do conceito à escala",
     "cta": {
       "title": "Pronto para Começar?",
       "description": "Vamos discutir seu projeto e criar uma solução personalizada que gera resultados.",
-      "button": "Agendar Sua Consultoria Gratuita"
+      "button": "Agendar Consultoria Gratuita"
     }
   },
   "portfolio": {
-    "title": "Nosso Portfólio",
-    "subtitle": "Projetos reais, resultados reais",
     "badge": "Casos de Sucesso",
-    "description": "Veja como ajudamos empresas como a sua a alcançar crescimento extraordinário através de marketing digital estratégico.",
-    "categories": {
+    "title": "Trabalho Que Entrega",
+    "titleHighlight": "Resultados",
+    "subtitle": "Projetos reais resolvendo problemas reais de negócio",
+    "description": "De plataformas SaaS a soluções de e-commerce - produtos construídos para escalar",
+    "tabs": {
       "all": "Todos os Projetos",
-      "copywriting": "Copywriting",
-      "development": "Desenvolvimento Web",
-      "marketing": "Marketing Digital",
-      "video": "Produção de Vídeo"
+      "software": "Software & SaaS",
+      "growth": "Crescimento & Estratégia"
     },
     "cta": {
       "title": "Pronto para Ser Nosso Próximo Caso de Sucesso?",
@@ -270,19 +283,6 @@
       "monthlyReturn": "Retorno Mensal",
       "yearlyReturn": "Retorno Anual",
       "totalGain": "Ganho/Perda Total"
-    },
-    "sections": {
-      "stocks": "Ações",
-      "bonds": "Títulos",
-      "etfs": "ETFs",
-      "crypto": "Criptomoedas",
-      "real-estate": "Imóveis"
-    },
-    "actions": {
-      "buy": "Comprar",
-      "sell": "Vender",
-      "viewDetails": "Ver Detalhes",
-      "addToWatchlist": "Adicionar à Lista"
     }
   },
   "language": "Idioma",

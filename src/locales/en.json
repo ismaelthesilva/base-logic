@@ -8,97 +8,106 @@
     "investments": "Investments"
   },
   "hero": {
-    "badge": "🔥 Converting 3x Better Than Industry Average",
-    "title": "Turn Your Traffic Into",
-    "titleHighlight": "Paying Customers",
-    "description": "Complete digital marketing solutions that convert visitors into buyers. From copywriting to landing pages, video creation to ad campaigns -",
-    "descriptionHighlight": "all in one place.",
-    "ctaPrimary": "Get Your Free Strategy Call",
-    "ctaSecondary": "Watch Success Stories",
+    "badge": "🚀 Product Engineering Meets Sales Psychology",
+    "title": "Engineered for Growth",
+    "description": "Base Logic Labs is a specialized studio partnering with global companies to architect scalable web apps that drive measurable business results",
+    "ctaPrimary": "View Portfolio",
+    "ctaSecondary": "Book Strategy Call",
     "socialProof": {
-      "clients": "Happy Clients",
-      "revenue": "Generated",
-      "roi": "Average ROI"
+      "leadership": "20+ Years Leadership Experience",
+      "champion": "2x World BJJ Champion",
+      "global": "3 Countries, 2 Continents"
     }
   },
-  "clients": {
-    "title": "Trusted by Leading Companies"
-  },
   "services": {
-    "badge": "Complete Solution",
-    "title": "Everything You Need to",
-    "titleHighlight": "Scale Your Business",
-    "description": "Stop juggling multiple agencies. Get copywriting, web development, video creation, and ad management from one expert team.",
-    "copywriting": {
-      "title": "Copywriting That Converts",
-      "description": "Psychological triggers and persuasive copy that turns visitors into buyers",
-      "features": ["Sales letters", "Email sequences", "Ad copy", "VSL scripts"]
+    "badge": "Core Services",
+    "title": "Where Engineering Meets",
+    "titleHighlight": "Business Growth",
+    "description": "Product engineering that combines technical excellence with business strategy",
+    "fullStack": {
+      "title": "Full Stack Architecture",
+      "description": "Enterprise-grade web applications built with Next.js, Node.js, and PostgreSQL. Scalable, secure, and optimized for performance.",
+      "features": [
+        "Next.js & React",
+        "Node.js Backend",
+        "PostgreSQL Database",
+        "API Design"
+      ]
     },
-    "landingPages": {
-      "title": "Landing Pages & Funnels",
-      "description": "High-converting landing pages optimized for Facebook and Google Ads",
-      "features": ["Mobile-optimized", "A/B tested", "Fast loading", "Analytics integrated"]
+    "conversion": {
+      "title": "Conversion Engineering",
+      "description": "Using psychology to reduce churn and increase user retention. Every interface decision is backed by behavioral science.",
+      "features": [
+        "Psychology-Driven UX",
+        "User Retention Strategies",
+        "Conversion Optimization",
+        "A/B Testing Framework"
+      ]
     },
-    "videoCreation": {
-      "title": "Video & Image Creation",
-      "description": "Professional video sales letters and stunning visuals that sell",
-      "features": ["VSL production", "Image editing", "Social media content", "Ad creatives"]
-    },
-    "digitalMarketing": {
-      "title": "Complete Digital Marketing",
-      "description": "End-to-end campaigns from ad creation to Hotmart integration",
-      "features": ["Campaign setup", "Audience targeting", "Conversion tracking", "ROI optimization"]
+    "speed": {
+      "title": "Speed to Market",
+      "description": "AI-enhanced workflows for rapid MVP delivery. Get to market faster with proven frameworks and automation.",
+      "features": [
+        "Rapid MVP Development",
+        "AI-Enhanced Workflows",
+        "Agile Methodology",
+        "Continuous Deployment"
+      ]
     }
   },
   "technologies": {
-    "badge": "Cutting-Edge Tech",
-    "title": "Built With The",
-    "titleHighlight": "Latest Technologies",
-    "description": "We use the most advanced tools to ensure your campaigns perform at their peak",
+    "badge": "Enterprise-Grade Stack",
+    "title": "Enterprise-Grade",
+    "titleHighlight": "Technology",
+    "description": "Modern, scalable, and battle-tested technologies powering Fortune 500 companies",
     "items": {
-      "react": "Lightning-fast web development",
-      "tailwind": "Beautiful, responsive designs",
-      "shadcn": "Modern component library",
-      "facebook": "Targeted advertising campaigns",
-      "google": "Search & display advertising",
-      "hotmart": "Digital product sales funnels",
-      "video": "Professional video content",
-      "landing": "High-converting sales pages"
+      "nextjs": "Enterprise React framework",
+      "typescript": "Type-safe development",
+      "postgresql": "Production database",
+      "prisma": "Type-safe ORM",
+      "tailwind": "Utility-first CSS",
+      "shadcn": "Accessible components",
+      "stripe": "Payment infrastructure",
+      "vercel": "Edge deployment for optimal performance"
     }
   },
   "testimonials": {
-    "badge": "Real Results",
-    "title": "What Our Clients Say About",
-    "titleHighlight": "Working With Us",
+    "badge": "⭐ Testimonials",
+    "title": "What Our Clients",
+    "titleHighlight": "Say About Working With Us",
     "items": [
       {
-        "name": "Maria Santos",
-        "company": "Fitness Digital",
-        "text": "Ismael increased our conversion rate by 340% in just 30 days. His landing pages are pure gold!",
-        "result": "+340% conversions"
+        "name": "Jackie Souto",
+        "company": "Jackie Souto Academy",
+        "text": "Ismael built a complete SaaS platform for my academy with payment integration, course management, and user authentication. The technical execution was flawless.",
+        "result": "300+ Active Students"
       },
       {
-        "name": "Carlos Rodriguez",
-        "company": "Tech Startup",
-        "text": "The VSL Ismael created for us generated over R$150k in the first month. Incredible ROI!",
-        "result": "R$150k in 30 days"
+        "name": "BJJ Championship",
+        "company": "World BJJ Championships",
+        "text": "The BJJChamp platform now handles 10K+ monthly users with real-time data and complex role-based permissions. Outstanding product engineering.",
+        "result": "10K+ Monthly Users"
       },
       {
-        "name": "Ana Costa",
-        "company": "Online Course Creator",
-        "text": "His copywriting skills are unmatched. Every email sequence he writes brings in sales.",
-        "result": "+250% email revenue"
+        "name": "Soute Doces",
+        "company": "E-commerce Platform",
+        "text": "The performance optimization for our e-commerce platform was incredible. 90+ Lighthouse scores and sales increased by 180%.",
+        "result": "180% Sales Increase"
       }
     ]
   },
   "cta": {
-    "badge": "🚨 Limited Time Offer",
-    "title": "Ready to",
-    "titleHighlight": "10x Your Conversions?",
-    "description": "Book your free strategy call now and discover how we can transform your traffic into a profit-generating machine. No fluff, just proven strategies that work.",
-    "button": "Book Your FREE Strategy Call",
-    "urgency": "⏰ Only 5 spots available this week",
-    "guarantees": ["100% Free Consultation", "Custom Strategy Plan", "No Obligation"]
+    "badge": "🚀 Ready to Start?",
+    "title": "Ready to Transform Your",
+    "titleHighlight": "Business?",
+    "description": "Get started today and transform your business with proven digital marketing strategies that deliver real results.",
+    "button": "Get Started Now",
+    "urgency": "Limited time offer - Act now!",
+    "guarantees": [
+      "30-day money-back guarantee",
+      "24/7 support",
+      "Results in 30 days"
+    ]
   },
   "contact": {
     "title": "Get In Touch",
@@ -107,7 +116,7 @@
       "title": "Send us a message",
       "name": "Full Name",
       "namePlaceholder": "Your full name",
-      "email": "Email Address", 
+      "email": "Email Address",
       "emailPlaceholder": "your@email.com",
       "phone": "Phone Number",
       "phonePlaceholder": "+1 (555) 123-4567",
@@ -131,127 +140,131 @@
     },
     "features": [
       "Free initial consultation",
-      "Custom strategy development", 
+      "Custom strategy development",
       "Fast response guaranteed",
       "Transparent pricing"
     ]
   },
   "footer": {
-    "title": "Ismael Silva - Digital Marketing Expert",
-    "description": "Transforming businesses through high-converting copy and cutting-edge technology",
+    "title": "Let's Work Together",
+    "description": "Ready to take your business to the next level? Get in touch today.",
     "links": {
-      "contact": "Get In Touch",
+      "contact": "Contact",
       "about": "Learn More About Us",
-      "dashboard": "Client Portal"
+      "portfolio": "Portfolio"
     }
   },
   "about": {
-    "badge": "About ismaCopy",
+    "badge": "About Base Logic Labs",
     "hero": {
-      "title": "From Motivational Speaker to",
-      "titleHighlight": "Digital Solutions Expert",
-      "description": "My journey from earning $100K+ as a motivational speaker to mastering fullstack development and conversion copywriting."
+      "title": "The Man Behind",
+      "titleHighlight": "The Code",
+      "subtitle": "20 Years Leading Communities, Now Engineering Products That Scale",
+      "description": "From pastor to product engineer: bringing people-first thinking to technical excellence"
     },
-    "journey": {
-      "title": "The Journey",
-      "subtitle": "From stage to screen: How I transformed challenges into expertise",
-      "steps": {
-        "beginning": {
-          "title": "The Beginning",
-          "period": "2018-2020",
-          "description": "Started as a motivational speaker in New Zealand, earning $100K+ annually through powerful presentations and workshops."
+    "story": {
+      "title": "From People to Products",
+      "subtitle": "A Unique Journey into Tech",
+      "intro": "Most developers come from CS degrees. I came from 20 years of pastoral leadership, community building, and championship athletics. That difference is my advantage.",
+      "sections": {
+        "leadership": {
+          "title": "20 Years of Leadership",
+          "period": "2003-2023",
+          "description": "Two decades as a pastor and community leader taught me how people think, make decisions, and what drives behavior. This isn't theory from a textbook—it's real-world understanding of human psychology applied to every product I build."
         },
-        "pivot": {
-          "title": "The Pivot", 
-          "period": "2020-2021",
-          "description": "COVID-19 changed everything. Venues closed, speaking gigs vanished. I had to reinvent myself in the digital world."
+        "product": {
+          "title": "Product Mindset, Not Just Code",
+          "description": "I don't just write code that works. I build products that people want to use. Every interface choice, every user flow, every interaction is designed with deep understanding of human behavior and decision-making."
         },
-        "evolution": {
-          "title": "The Evolution",
-          "period": "2021-2023",
-          "description": "Mastered JavaScript, React, Node.js, and copywriting. The same skills that made me successful on stage now drive digital success."
+        "champion": {
+          "title": "2x World BJJ Champion",
+          "description": "Competing at the highest levels of Brazilian Jiu-Jitsu taught me discipline, strategic thinking, and how to perform under pressure. The same mental framework that wins championships builds successful products."
         },
-        "ismaCopy": {
-          "title": "ismaCopy Born",
-          "period": "2024-Present", 
-          "description": "Combined development expertise with persuasive writing skills to create high-converting digital solutions for businesses."
+        "global": {
+          "title": "Global Perspective",
+          "description": "Born in Brazil, built a life in New Zealand, serving clients across the US and beyond. This multicultural experience means I understand diverse markets, communication styles, and business practices."
         }
       }
     },
-    "personal": {
-      "name": "Ismael Silva",
-      "title": "Founder & Full Stack Developer",
-      "story": {
-        "paragraph1": "Before COVID-19, I was living the dream as a motivational speaker in New Zealand, earning over $100,000 annually. I traveled across the country, speaking to packed auditoriums, helping people transform their mindsets and achieve their goals. The stage was my world, and I was thriving.",
-        "paragraph2": "Then March 2020 happened. Overnight, speaking events were cancelled. Venues closed. The industry I had mastered suddenly disappeared. Like millions of others, I faced an uncertain future. But instead of seeing it as an end, I saw it as a beginning.",
-        "paragraph3": "I threw myself into learning JavaScript, React, Node.js, and TypeScript. The same discipline and communication skills that made me successful on stage became my secret weapons in the digital world. I discovered that persuasive speaking and effective coding aren't so different – both require clarity, logic, and the ability to solve problems.",
-        "paragraph4": "Today, ismaCopy combines my speaking background with cutting-edge development skills. I create digital solutions that don't just function – they persuade, convert, and grow businesses. From New Zealand stages to global screens, the mission remains the same: helping others succeed."
+    "services": {
+      "title": "What I Build",
+      "subtitle": "3 Core Services, 1 Unified Approach",
+      "saas": {
+        "title": "Custom SaaS Development",
+        "description": "Full-stack web applications that scale. From MVP to enterprise-grade platforms with authentication, payments, and complex data flows."
+      },
+      "ai": {
+        "title": "AI & Automation Integration",
+        "description": "Smart automation that saves time and increases efficiency. From AI-powered features to workflow optimization that compounds results."
+      },
+      "ux": {
+        "title": "Conversion-Driven UI/UX",
+        "description": "Interfaces designed to convert. Psychology-backed design that guides users naturally toward desired actions while feeling effortless."
       }
     },
-    "services": {
-      "title": "What I Do",
-      "subtitle": "Combining technical excellence with persuasive communication",
-      "development": {
-        "title": "Fullstack Development",
-        "description": "Modern web applications built with React, Next.js, and Node.js that perform exceptionally and scale effortlessly.",
-        "features": ["React & Next.js Applications", "Backend APIs & Databases", "Responsive Design", "Performance Optimization", "TypeScript Development", "Cloud Deployment"]
+    "timeline": {
+      "title": "The Journey",
+      "brazil": {
+        "title": "Brazil",
+        "period": "1985-2010",
+        "description": "Born and raised in Brazil. Started in pastoral leadership, became 2x World BJJ Champion"
       },
-      "copywriting": {
-        "title": "Conversion Copywriting", 
-        "description": "Strategic messaging that turns visitors into customers, combining psychological triggers with clear communication.",
-        "features": ["Sales Page Copy", "Email Sequences", "Landing Page Optimization", "Brand Voice Development", "A/B Testing", "Conversion Strategy"]
+      "newzealand": {
+        "title": "New Zealand",
+        "period": "2010-Present",
+        "description": "Moved to Auckland. Continued ministry work while mastering fullstack development"
       },
-      "strategy": {
-        "title": "Digital Strategy",
-        "description": "Complete digital solutions that align technology with business goals for measurable growth and success.",
-        "features": ["Digital Transformation", "Growth Strategy", "Analytics & Tracking", "User Experience Design", "Marketing Automation", "Performance Analysis"]
+      "tech": {
+        "title": "Full-Time Tech",
+        "period": "2020-Present",
+        "description": "Transitioned fully into product engineering. Combining 20 years of people skills with cutting-edge technology"
       }
     },
     "values": {
       "title": "Core Values",
-      "subtitle": "What drives every project and partnership",
-      "clientFocused": {
-        "title": "Client-Focused",
-        "description": "Every solution is tailored to your specific needs, goals, and audience. Your success is the only metric that matters."
+      "subtitle": "What drives every project",
+      "business": {
+        "title": "Business-First Mindset",
+        "description": "Technology serves business goals. Every technical decision is evaluated against ROI and user impact."
       },
-      "globalMindset": {
-        "title": "Global Mindset",
-        "description": "Experience across New Zealand, Brazil, and the US brings diverse perspectives to every project."
+      "global": {
+        "title": "Global Perspective",
+        "description": "Experience across Brazil, NZ, and the US brings diverse thinking to every challenge."
       },
-      "innovation": {
-        "title": "Innovation",
-        "description": "Staying ahead with the latest technologies and strategies to give you a competitive advantage."
+      "excellence": {
+        "title": "Product Excellence",
+        "description": "Clean code, thoughtful UX, and engineering that scales. No shortcuts, just quality work."
       }
     },
     "cta": {
-      "title": "Ready to Transform Your Business?",
-      "description": "Let's discuss how we can create digital solutions that drive real results for your business.",
+      "title": "Ready to Build Something Great?",
+      "description": "Let's discuss your product vision and create something users love.",
       "strategyCall": "Book Strategy Call",
-      "portfolio": "View Our Portfolio"
+      "portfolio": "View Portfolio"
     }
   },
   "servicesPage": {
-    "title": "Our Services",
-    "subtitle": "Complete digital marketing solutions that drive results",
-    "badge": "Proven Results • 100+ Projects • $1M+ Client Revenue",
-    "description": "Your website should be your best salesperson. If it's not converting visitors into customers, you're bleeding money every single day.",
+    "badge": "Services",
+    "title": "Product Engineering",
+    "titleHighlight": "That Drives Growth",
+    "subtitle": "Technical Excellence Meets Business Strategy",
+    "description": "Three core services designed to take your product from concept to scale",
     "cta": {
       "title": "Ready to Get Started?",
       "description": "Let's discuss your project and create a custom solution that drives results.",
-      "button": "Get Your Free Strategy Call"
+      "button": "Book Free Strategy Call"
     }
   },
   "portfolio": {
-    "title": "Our Portfolio",
-    "subtitle": "Real projects, real results",
     "badge": "Success Stories",
-    "description": "See how we've helped businesses like yours achieve extraordinary growth through strategic digital marketing.",
-    "categories": {
+    "title": "Work That Delivers",
+    "titleHighlight": "Results",
+    "subtitle": "Real projects solving real business problems",
+    "description": "From SaaS platforms to e-commerce solutions - products built to scale",
+    "tabs": {
       "all": "All Projects",
-      "copywriting": "Copywriting",
-      "development": "Web Development",
-      "marketing": "Digital Marketing",
-      "video": "Video Production"
+      "software": "Software & SaaS",
+      "growth": "Growth & Strategy"
     },
     "cta": {
       "title": "Ready to Be Our Next Success Story?",
@@ -270,19 +283,6 @@
       "monthlyReturn": "Monthly Return",
       "yearlyReturn": "Annual Return",
       "totalGain": "Total Gain/Loss"
-    },
-    "sections": {
-      "stocks": "Stocks",
-      "bonds": "Bonds",
-      "etfs": "ETFs",
-      "crypto": "Cryptocurrency",
-      "real-estate": "Real Estate"
-    },
-    "actions": {
-      "buy": "Buy",
-      "sell": "Sell",
-      "viewDetails": "View Details",
-      "addToWatchlist": "Add to Watchlist"
     }
   },
   "language": "Language",

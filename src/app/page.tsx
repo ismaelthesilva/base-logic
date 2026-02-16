@@ -73,9 +73,9 @@ export default function Home() {
       description: "Utility-first CSS for rapid UI development",
     },
     {
-      name: "Supabase",
-      icon: "⚡",
-      description: "Backend-as-a-Service for rapid development",
+      name: "Prisma + Neon",
+      icon: "🗄️",
+      description: "Type-safe ORM with serverless Postgres",
     },
     {
       name: "AI Integration",
@@ -91,10 +91,13 @@ export default function Home() {
 
   const services = [
     {
+      titleKey: "services.fullStack.title",
       title: "Full Stack Architecture",
+      descriptionKey: "services.fullStack.description",
       description:
         "Enterprise-grade web applications built with Next.js, Node.js, and PostgreSQL. Scalable, secure, and optimized for performance.",
       icon: <Code className="h-8 w-8" />,
+      featuresKey: "services.fullStack.features",
       features: [
         "Next.js & React",
         "Node.js Backend",
@@ -103,10 +106,13 @@ export default function Home() {
       ],
     },
     {
+      titleKey: "services.conversion.title",
       title: "Conversion Engineering",
+      descriptionKey: "services.conversion.description",
       description:
         "Using psychology to reduce churn and increase user retention. Every interface decision is backed by behavioral science.",
       icon: <Target className="h-8 w-8" />,
+      featuresKey: "services.conversion.features",
       features: [
         "Psychology-Driven UX",
         "User Retention Strategies",
@@ -115,10 +121,13 @@ export default function Home() {
       ],
     },
     {
+      titleKey: "services.speed.title",
       title: "Speed to Market",
+      descriptionKey: "services.speed.description",
       description:
         "AI-enhanced workflows for rapid MVP delivery. Get to market faster with proven frameworks and automation.",
       icon: <Zap className="h-8 w-8" />,
+      featuresKey: "services.speed.features",
       features: [
         "Rapid MVP Development",
         "AI-Enhanced Workflows",
@@ -149,7 +158,6 @@ export default function Home() {
     },
   ];
 
-
   return (
     <div
       className="min-h-screen bg-background text-foreground"
@@ -170,12 +178,12 @@ export default function Home() {
               className="mx-auto mb-6 w-24 h-24 rounded-2xl shadow-lg"
             />
             <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Engineered for Growth
+              {isClient ? t("hero.title") : "Engineered for Growth"}
             </h1>
             <p className="text-xl sm:text-2xl mb-8 leading-relaxed text-gray-200 font-medium">
-              Base Logic Labs is a specialized studio partnering with global
-              companies to architect scalable web apps that drive measurable
-              business results
+              {isClient
+                ? t("hero.description")
+                : "Base Logic Labs is a specialized studio partnering with global companies to architect scalable web apps that drive measurable business results"}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button
@@ -184,7 +192,7 @@ export default function Home() {
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-lg px-8 py-4 shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
               >
                 <Link href="/portfolio">
-                  View Portfolio
+                  {isClient ? t("hero.ctaPrimary") : "View Portfolio"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -194,7 +202,9 @@ export default function Home() {
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
               >
-                <Link href="/contact">Book Strategy Call</Link>
+                <Link href="/contact">
+                  {isClient ? t("hero.ctaSecondary") : "Book Strategy Call"}
+                </Link>
               </Button>
             </div>
             {/* Social Proof */}
@@ -202,11 +212,29 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-green-400" />
-                  <span>20+ Years Leadership Experience</span>
+                  <span>
+                    {isClient
+                      ? t("hero.socialProof.leadership")
+                      : "20+ Years Leadership Experience"}
+                  </span>
                 </div>
+                <div className="hidden sm:block h-6 w-px bg-white/30"></div>
                 <div className="flex items-center gap-2">
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <span>2x World BJJ Champion</span>
+                  <span>
+                    {isClient
+                      ? t("hero.socialProof.champion")
+                      : "2x World BJJ Champion"}
+                  </span>
+                </div>
+                <div className="hidden sm:block h-6 w-px bg-white/30"></div>
+                <div className="flex items-center gap-2">
+                  <Globe className="h-5 w-5 text-blue-400" />
+                  <span>
+                    {isClient
+                      ? t("hero.socialProof.global")
+                      : "3 Countries, 2 Continents"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -217,19 +245,20 @@ export default function Home() {
       {/* Value Propositions Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" suppressHydrationWarning={true}>
             <Badge className="mb-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-              Our Approach
+              {isClient ? t("services.badge") : "Core Services"}
             </Badge>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              Where Engineering Meets{" "}
+            <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">
+              {isClient ? t("services.title") : "Where Engineering Meets"}{" "}
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                Business Growth
+                {isClient ? t("services.titleHighlight") : "Business Growth"}
               </span>
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              We don't just write code. We build business solutions that combine
-              technical excellence with revenue-focused strategy.
+            <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+              {isClient
+                ? t("services.description")
+                : "Product engineering that combines technical excellence with business strategy"}
             </p>
           </div>
 
@@ -244,20 +273,23 @@ export default function Home() {
                     <div className="p-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg text-white mb-4">
                       {service.icon}
                     </div>
-                    <CardTitle className="text-xl text-gray-900 dark:text-white">
-                      {service.title}
+                    <CardTitle className="text-xl text-slate-900 dark:text-white">
+                      {isClient ? t(service.titleKey) : service.title}
                     </CardTitle>
                   </div>
-                  <CardDescription className="text-base leading-relaxed text-gray-600 dark:text-gray-300 text-center">
-                    {service.description}
+                  <CardDescription className="text-base leading-relaxed text-slate-600 dark:text-slate-300 text-center">
+                    {isClient ? t(service.descriptionKey) : service.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
+                    {(isClient
+                      ? (t(service.featuresKey) as unknown as string[])
+                      : service.features
+                    ).map((feature: string, idx: number) => (
                       <li key={idx} className="flex items-center gap-2">
                         <CheckCircle className="h-4 w-4 text-green-500 dark:text-green-400" />
-                        <span className="text-sm text-gray-600 dark:text-gray-300">
+                        <span className="text-sm text-slate-600 dark:text-slate-300">
                           {feature}
                         </span>
                       </li>
@@ -273,18 +305,20 @@ export default function Home() {
       {/* Technologies Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" suppressHydrationWarning={true}>
             <Badge className="mb-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white">
-              Tech Stack
+              {isClient ? t("technologies.badge") : "Enterprise-Grade Stack"}
             </Badge>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              Enterprise-Grade{" "}
+            <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">
+              {isClient ? t("technologies.title") : "Enterprise-Grade"}{" "}
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                Technology
+                {isClient ? t("technologies.titleHighlight") : "Technology"}
               </span>
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Modern, scalable tools for building production-ready applications
+            <p className="text-xl text-slate-600 dark:text-slate-300">
+              {isClient
+                ? t("technologies.description")
+                : "Modern, scalable, and battle-tested technologies powering Fortune 500 companies"}
             </p>
           </div>
 
@@ -312,16 +346,18 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-100 via-purple-50 to-blue-100 dark:from-blue-900 dark:via-purple-900 dark:to-blue-900">
+      <section className="py-20 bg-gradient-to-r from-blue-50 via-purple-50 to-blue-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" suppressHydrationWarning={true}>
-            <Badge className="mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black">
+            <Badge className="mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 dark:text-white font-semibold">
               {isClient ? t("testimonials.badge") : "⭐ Testimonials"}
             </Badge>
-            <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              {isClient ? t("testimonials.title") : "What Clients"}{" "}
+            <h2 className="text-4xl font-bold mb-6 text-black dark:text-white">
+              {isClient ? t("testimonials.title") : "What Our Clients"}{" "}
               <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                {isClient ? t("testimonials.titleHighlight") : "Say"}
+                {isClient
+                  ? t("testimonials.titleHighlight")
+                  : "Say About Working With Us"}
               </span>
             </h2>
           </div>
@@ -330,12 +366,12 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <Card
                 key={index}
-                className="bg-card/80 backdrop-blur-md border hover:border-primary/30 text-foreground hover:bg-card/90 transition-all duration-300"
+                className="bg-white dark:bg-slate-800/90 backdrop-blur-md border border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-xl transition-all duration-300"
               >
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
-                    <Avatar className="border-2 border-gray-200 dark:border-white/20">
-                      <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                    <Avatar className="border-2 border-blue-200 dark:border-blue-400">
+                      <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold">
                         {testimonial.name
                           .split(" ")
                           .map((n) => n[0])
@@ -343,10 +379,10 @@ export default function Home() {
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <CardTitle className="text-gray-900 dark:text-white">
+                      <CardTitle className="text-slate-900 dark:text-white font-bold">
                         {testimonial.name}
                       </CardTitle>
-                      <CardDescription className="text-blue-600 dark:text-blue-200">
+                      <CardDescription className="text-blue-600 dark:text-blue-300 font-medium">
                         {testimonial.company}
                       </CardDescription>
                     </div>
@@ -355,16 +391,16 @@ export default function Home() {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                        className="h-4 w-4 fill-yellow-400 text-yellow-400 dark:fill-yellow-300 dark:text-yellow-300"
                       />
                     ))}
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-800 dark:text-white/90 mb-4 italic">
+                  <p className="text-slate-700 dark:text-slate-200 mb-4 italic leading-relaxed">
                     "{testimonial.text}"
                   </p>
-                  <Badge className="bg-gradient-to-r from-green-500 to-emerald-600 text-white">
+                  <Badge className="bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold">
                     {testimonial.result}
                   </Badge>
                 </CardContent>
@@ -375,7 +411,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-black dark:to-gray-900 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -389,13 +425,13 @@ export default function Home() {
           <Badge className="mb-6 bg-gradient-to-r from-red-500 to-orange-600 text-white animate-pulse">
             {isClient ? t("cta.badge") : "🚀 Ready to Start?"}
           </Badge>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black dark:text-white">
             {isClient ? t("cta.title") : "Ready to Transform Your"}{" "}
             <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
               {isClient ? t("cta.titleHighlight") : "Business?"}
             </span>
           </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-gray-600 dark:text-gray-300">
+          <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-slate-600 dark:text-slate-300">
             {isClient
               ? t("cta.description")
               : "Get started today and transform your business with proven digital marketing strategies that deliver real results."}
@@ -409,17 +445,20 @@ export default function Home() {
               {isClient ? t("cta.button") : "Get Started Now"}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
+            <div className="text-sm text-slate-500 dark:text-slate-400">
               {isClient ? t("cta.urgency") : "Limited time offer - Act now!"}
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-gray-600 dark:text-gray-300">
-            {[
-              "30-day money-back guarantee",
-              "24/7 support",
-              "Results in 30 days",
-            ].map((guarantee, index) => (
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-slate-600 dark:text-slate-300">
+            {(isClient
+              ? (t("cta.guarantees") as unknown as string[])
+              : [
+                  "30-day money-back guarantee",
+                  "24/7 support",
+                  "Results in 30 days",
+                ]
+            ).map((guarantee: string, index: number) => (
               <div key={index} className="flex items-center gap-2">
                 <CheckCircle className="h-5 w-5 text-green-500 dark:text-green-400" />
                 <span>{guarantee}</span>
@@ -430,7 +469,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <section className="py-12 bg-gray-900 dark:bg-black text-white">
+      <section className="py-12 bg-slate-900 dark:bg-slate-950 text-white">
         <div
           className="container mx-auto px-4 text-center"
           suppressHydrationWarning={true}
@@ -438,7 +477,7 @@ export default function Home() {
           <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             {isClient ? t("footer.title") : "Let's Work Together"}
           </h3>
-          <p className="text-gray-400 mb-6">
+          <p className="text-slate-300 dark:text-slate-400 mb-6">
             {isClient
               ? t("footer.description")
               : "Ready to take your business to the next level? Get in touch today."}
@@ -460,7 +499,7 @@ export default function Home() {
               href="/portfolio"
               className="text-blue-400 hover:text-blue-300 transition-colors"
             >
-              Portfolio
+              {isClient ? t("footer.links.portfolio") : "Portfolio"}
             </Link>
           </div>
         </div>
