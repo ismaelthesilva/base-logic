@@ -171,8 +171,12 @@ export default function About() {
             <Card className="border-0 shadow-xl bg-card/70 backdrop-blur-sm border border-border">
               <CardContent className="p-8 md:p-12">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full mr-6 border-2 border-blue-200 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-white">IS</span>
+                  <div className="w-16 h-16 rounded-full overflow-hidden mr-6 border-2 border-blue-200">
+                    <img 
+                      src="/images/isma-profile21.jpg" 
+                      alt="Ismael Silva - Founder of Base Logic Labs" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-foreground">Ismael Silva</h3>

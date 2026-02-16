@@ -138,17 +138,17 @@ const testimonials = [
 
 const guarantees = [
   {
-    icon: <Shield className="h-8 w-8 text-blue-600" />,
+    icon: <Shield className="h-8 w-8 text-blue-300" />,
     title: "100% Satisfaction Guarantee",
     description: "If you're not completely satisfied with the results, I'll work for free until you are—or refund your investment."
   },
   {
-    icon: <Clock className="h-8 w-8 text-green-600" />,
+    icon: <Clock className="h-8 w-8 text-green-300" />,
     title: "On-Time Delivery",
     description: "Your project will be delivered on schedule, or you get 20% off your investment. No excuses, no delays."
   },
   {
-    icon: <Rocket className="h-8 w-8 text-purple-600" />,
+    icon: <Rocket className="h-8 w-8 text-purple-300" />,
     title: "Performance Promise",
     description: "Your website will achieve 90+ Lighthouse performance scores and load in under 3 seconds, guaranteed."
   }
@@ -164,9 +164,9 @@ export default function Services() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 px-6 py-3 rounded-full mb-8">
-              <Star className="h-5 w-5 text-blue-600" />
-              <span className="font-semibold text-blue-600">Services</span>
-              <Star className="h-5 w-5 text-blue-600" />
+              <Star className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              <span className="font-semibold text-blue-600 dark:text-blue-400">Services</span>
+              <Star className="h-5 w-5 text-blue-600 dark:text-blue-400" />
             </div>
             
             <h1 className="text-6xl md:text-7xl font-extrabold mb-8 leading-tight">
@@ -260,13 +260,13 @@ export default function Services() {
                   </div>
 
                   {/* Deliverables */}
-                  <div className="bg-blue-50 p-6 rounded-lg">
-                    <h4 className="font-bold text-blue-900 mb-4">🎯 Results You'll See:</h4>
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                    <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-4">🎯 Results You'll See:</h4>
                     <div className="space-y-2">
                       {service.deliverables.map((deliverable, idx) => (
                         <div key={idx} className="flex items-start gap-3">
-                          <Target className="h-4 w-4 text-blue-600 mt-1 flex-shrink-0" />
-                          <span className="text-blue-800 text-sm">{deliverable}</span>
+                          <Target className="h-4 w-4 text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
+                          <span className="text-blue-800 dark:text-blue-200 text-sm">{deliverable}</span>
                         </div>
                       ))}
                     </div>
@@ -285,8 +285,8 @@ export default function Services() {
                       </div>
                     </div>
                     
-                    <div className="bg-green-50 p-4 rounded-lg mb-6">
-                      <p className="text-sm font-semibold text-green-800">
+                    <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6">
+                      <p className="text-sm font-semibold text-green-800 dark:text-green-200">
                         🏆 Proven Results: {service.results}
                       </p>
                     </div>
@@ -372,8 +372,8 @@ export default function Services() {
                     "{testimonial.quote}"
                   </blockquote>
                   
-                  <div className="bg-green-50 p-4 rounded-lg">
-                    <p className="font-bold text-green-800">
+                  <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                    <p className="font-bold text-green-800 dark:text-green-200">
                       📊 Result: {testimonial.results}
                     </p>
                   </div>
@@ -385,7 +385,7 @@ export default function Services() {
       </section>
 
       {/* Guarantees Section */}
-      <section className="py-20 bg-muted text-white">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -398,17 +398,17 @@ export default function Services() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {guarantees.map((guarantee, index) => (
-              <Card key={index} className="bg-background/10 backdrop-blur-sm border-white/20 text-white">
+              <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
                 <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 p-4 bg-background/10 rounded-2xl w-fit">
+                  <div className="mx-auto mb-4 p-4 bg-white/10 rounded-2xl w-fit">
                     {guarantee.icon}
                   </div>
-                  <CardTitle className="text-xl font-bold mb-4">
+                  <CardTitle className="text-xl font-bold mb-4 text-white">
                     {guarantee.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-center opacity-90 leading-relaxed">
+                  <p className="text-center opacity-90 leading-relaxed text-white">
                     {guarantee.description}
                   </p>
                 </CardContent>

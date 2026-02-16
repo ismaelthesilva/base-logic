@@ -130,33 +130,25 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "Carlos Silva",
-      company: "TechStart",
-      text: "Increased our conversion rate by 340% in just 2 months!",
-      result: "+340% Conversion",
+      name: "Jackie Souto",
+      company: "Jackie Souto Academy",
+      text: "Ismael built a complete SaaS platform for my academy with payment integration, course management, and user authentication. The technical execution was flawless.",
+      result: "300+ Active Students",
     },
     {
-      name: "Maria Santos",
-      company: "EduOnline",
-      text: "The landing page generated R$ 500k in the first launch.",
-      result: "R$ 500k Revenue",
+      name: "BJJ Championship",
+      company: "World BJJ Championships",
+      text: "The BJJChamp platform now handles 10K+ monthly users with real-time data and complex role-based permissions. Outstanding product engineering.",
+      result: "10K+ Monthly Users",
     },
     {
-      name: "João Oliveira",
-      company: "FitnessPro",
-      text: "Best investment in marketing I ever made. ROI of 12x!",
-      result: "12x ROI",
+      name: "Soute Doces",
+      company: "E-commerce Platform",
+      text: "The performance optimization for our e-commerce platform was incredible. 90+ Lighthouse scores and sales increased by 180%.",
+      result: "180% Sales Increase",
     },
   ];
 
-  const clients = [
-    { name: "TechNova", logo: "🏢" },
-    { name: "Boostly", logo: "📈" },
-    { name: "MarketEdge", logo: "🎯" },
-    { name: "SalesSuite", logo: "💼" },
-    { name: "LaunchMax", logo: "🚀" },
-    { name: "GrowthForge", logo: "🧪" },
-  ];
 
   return (
     <div
@@ -218,29 +210,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Logos */}
-      <section className="py-12 bg-muted/50 border-b border-gray-200">
-        <div className="container mx-auto px-4">
-          <p
-            className="text-center text-muted-foreground mb-8 font-medium"
-            suppressHydrationWarning={true}
-          >
-            {isClient ? t("clients.title") : "Trusted by leading companies"}
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span className="text-3xl">{client.logo}</span>
-                <span>{client.name}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>

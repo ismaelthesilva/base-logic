@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "./ui/button";
 import {
   DropdownMenu,
@@ -21,14 +21,39 @@ const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const { language, changeLanguage, t } = useLanguage();
   const pathname = usePathname();
+  const router = useRouter();
 
   const navigationLinks = [
-    { name: t("nav.home") || "Home", href: "/", icon: null },
-    { name: t("nav.about") || "About", href: "/about", icon: null },
-    { name: t("nav.services") || "Services", href: "/services", icon: null },
-    { name: t("nav.investments") || "Investments", href: "/dashboard", icon: null },
-    { name: t("nav.contact") || "Contact", href: "/contact", icon: null },
-    { name: t("nav.portfolio") || "Portfolio", href: "/portfolio", icon: null },
+    {
+      name: t("nav.home") || "Home",
+      href: "/",
+      icon: null,
+      requiresAuth: false,
+    },
+    {
+      name: t("nav.about") || "About",
+      href: "/about",
+      icon: null,
+      requiresAuth: false,
+    },
+    {
+      name: t("nav.services") || "Services",
+      href: "/services",
+      icon: null,
+      requiresAuth: false,
+    },
+    {
+      name: t("nav.contact") || "Contact",
+      href: "/contact",
+      icon: null,
+      requiresAuth: false,
+    },
+    {
+      name: t("nav.portfolio") || "Portfolio",
+      href: "/portfolio",
+      icon: null,
+      requiresAuth: false,
+    },
   ];
 
   const languages = [
@@ -38,6 +63,30 @@ const Navbar = () => {
 
   const isActivePath = (path: string) => {
     return pathname === path;
+  };
+
+  const handleProtectedClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Check if user is authenticated
+    const token =
+      typeof window !== "undefined" ? localStorage.getItem("authToken") : null;
+
+    console.log("🔐 Auth Check - Token exists:", !!token);
+
+    if (!token) {
+      // Redirect to login with return URL
+      console.log("❌ Not authenticated - Redirecting to login");
+      router.push(`/auth/login?redirectTo=${href}`);
+    } else {
+      // Navigate to the protected route
+      console.log("✅ Authenticated - Going to:", href);
+      router.push(href);
+    }
   };
 
   return (
@@ -64,6 +113,11 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => {
+                  if (link.requiresAuth) {
+                    handleProtectedClick(e, link.href);
+                  }
+                }}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActivePath(link.href)
                     ? "text-foreground bg-accent"
@@ -174,7 +228,12 @@ const Navbar = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  if (link.requiresAuth) {
+                    handleProtectedClick(e, link.href);
+                  }
+                  setIsOpen(false);
+                }}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   isActivePath(link.href)
                     ? "text-foreground bg-accent"
