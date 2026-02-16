@@ -29,67 +29,88 @@ export default function About() {
 
   const journey = [
     {
-      icon: <User className="h-6 w-6" />,
-      title: t('about.journey.steps.beginning.title'),
-      period: t('about.journey.steps.beginning.period'),
-      description: t('about.journey.steps.beginning.description')
+      icon: <Heart className="h-6 w-6" />,
+      title: "Community Leadership",
+      period: "20+ Years",
+      description: "Built elite soft skills as Pastor and Community Leader: empathy, communication, crisis management, and understanding human needs."
     },
     {
-      icon: <TrendingUp className="h-6 w-6" />,
-      title: t('about.journey.steps.pivot.title'),
-      period: t('about.journey.steps.pivot.period'),
-      description: t('about.journey.steps.pivot.description')
+      icon: <Users className="h-6 w-6" />,
+      title: "World Champion",
+      period: "2x World Titles",
+      description: "Brazilian Jiu-Jitsu World Champion demonstrating discipline, focus, and performance under pressure—skills that translate directly to product development."
     },
     {
       icon: <Code className="h-6 w-6" />,
-      title: t('about.journey.steps.evolution.title'),
-      period: t('about.journey.steps.evolution.period'),
-      description: t('about.journey.steps.evolution.description')
+      title: "Product Engineering",
+      period: "Present",
+      description: "Full Stack Product Engineer combining technical expertise with deep understanding of user psychology and business strategy."
     },
     {
       icon: <Rocket className="h-6 w-6" />,
-      title: t('about.journey.steps.ismaCopy.title'),
-      period: t('about.journey.steps.ismaCopy.period'),
-      description: t('about.journey.steps.ismaCopy.description')
+      title: "Base Logic Labs",
+      period: "Founder",
+      description: "Leading studio that bridges Silicon Valley engineering with sales psychology, serving global clients from New Zealand."
     }
   ];
 
   const services = [
     {
       icon: <Code className="h-8 w-8 text-blue-600" />,
-      title: t('about.services.development.title'),
-      description: t('about.services.development.description'),
-      features: t('about.services.development.features', { returnObjects: true })
+      title: "Custom SaaS Development",
+      description: "End-to-end MVP building using the T3 Stack or Next.js ecosystem. Focus on Vertical SaaS for niche industries.",
+      features: [
+        "Full-Stack Next.js Applications",
+        "PostgreSQL Database Architecture",
+        "Stripe & Payment Integration",
+        "Role-Based Access Control (RBAC)",
+        "API Design & Development",
+        "Scalable Cloud Infrastructure"
+      ]
     },
     {
-      icon: <Edit3 className="h-8 w-8 text-green-600" />,
-      title: t('about.services.copywriting.title'),
-      description: t('about.services.copywriting.description'),
-      features: t('about.services.copywriting.features', { returnObjects: true })
+      icon: <Lightbulb className="h-8 w-8 text-green-600" />,
+      title: "AI & Automation Integration",
+      description: "Implementing LLMs (OpenAI/Anthropic) for RAG pipelines, chatbots, and automated business workflows.",
+      features: [
+        "Custom AI Chatbots",
+        "RAG Pipeline Development",
+        "Business Process Automation",
+        "OpenAI & Anthropic Integration",
+        "Intelligent Document Processing",
+        "AI-Enhanced User Experiences"
+      ]
     },
     {
       icon: <Target className="h-8 w-8 text-purple-600" />,
-      title: t('about.services.strategy.title'),
-      description: t('about.services.strategy.description'),
-      features: t('about.services.strategy.features', { returnObjects: true })
+      title: "Conversion-Driven UI/UX",
+      description: "Auditing and rebuilding interfaces specifically to increase user retention and sales by combining code with copywriting psychology.",
+      features: [
+        "Conversion Rate Optimization",
+        "Psychology-Driven Design",
+        "A/B Testing Implementation",
+        "User Journey Mapping",
+        "Persuasive Copywriting",
+        "Analytics & Performance Tracking"
+      ]
     }
   ];
 
   const values = [
     {
       icon: <Heart className="h-6 w-6 text-red-500" />,
-      title: t('about.values.clientFocused.title'),
-      description: t('about.values.clientFocused.description')
+      title: "Business-First Mindset",
+      description: "Every technical decision is a business decision. I build solutions that drive measurable ROI and solve real problems."
     },
     {
       icon: <Globe className="h-6 w-6 text-blue-500" />,
-      title: t('about.values.globalMindset.title'),
-      description: t('about.values.globalMindset.description')
+      title: "Global Perspective",
+      description: "Experience across NZ, Brazil, and USA means I understand diverse markets and can work seamlessly with international teams."
     },
     {
       icon: <Lightbulb className="h-6 w-6 text-yellow-500" />,
-      title: t('about.values.innovation.title'),
-      description: t('about.values.innovation.description')
+      title: "Product Excellence",
+      description: "Combining technical expertise with psychology and pedagogy to create products that people actually want to use."
     }
   ];
 
@@ -101,13 +122,14 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <Badge variant="secondary" className="mb-6 text-sm font-medium px-4 py-2">
-              {t('about.badge')}
+              About Base Logic Labs
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground leading-tight">
-              {t('about.hero.title')} <span className="text-blue-600">{t('about.hero.titleHighlight')}</span>
+              The Man Behind{" "}
+              <span className="text-blue-600">The Code</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              {t('about.hero.description')}
+              Full Stack Product Engineer meets 20+ years of leadership experience and world-class discipline
             </p>
           </div>
         </div>
@@ -118,8 +140,8 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">{t('about.journey.title')}</h2>
-              <p className="text-lg text-muted-foreground">{t('about.journey.subtitle')}</p>
+              <h2 className="text-3xl font-bold text-foreground mb-4">My Journey</h2>
+              <p className="text-lg text-muted-foreground">From community leadership to world-class product engineering</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -149,34 +171,42 @@ export default function About() {
             <Card className="border-0 shadow-xl bg-card/70 backdrop-blur-sm border border-border">
               <CardContent className="p-8 md:p-12">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mr-6 border-2 border-blue-200">
-                    <img 
-                      src="/images/isma-profile21.jpg" 
-                      alt="Ismael Silva - Founder of ismaCopy" 
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-16 h-16 rounded-full mr-6 border-2 border-blue-200 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-white">IS</span>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground">{t('about.personal.name')}</h3>
-                    <p className="text-lg text-blue-600">{t('about.personal.title')}</p>
+                    <h3 className="text-2xl font-bold text-foreground">Ismael Silva</h3>
+                    <p className="text-lg text-blue-600">Founder & Product Engineer</p>
                   </div>
                 </div>
                 
                 <div className="prose prose-lg text-muted-foreground leading-relaxed">
+                  <h4 className="text-xl font-bold text-foreground mb-4">From Community Leader to Product Engineer</h4>
+                  
                   <p className="mb-4">
-                    {t('about.personal.story.paragraph1')}
+                    I'm not your typical developer. Before writing my first line of code, I spent <strong>20 years as a Pastor and Community Leader</strong>, developing elite soft skills that most engineers never acquire: empathy, communication, crisis management, and the ability to understand what people truly need—not just what they say they want.
                   </p>
                   
                   <p className="mb-4">
-                    {t('about.personal.story.paragraph2')}
+                    This unique background gives me an <strong>unfair advantage</strong> in product engineering. I don't just build features—I architect solutions that solve real human problems. My time leading communities taught me how to identify pain points, manage stakeholder expectations, and deliver results under pressure.
                   </p>
                   
+                  <h4 className="text-xl font-bold text-foreground mb-4 mt-6">The Product Mindset</h4>
+                  
                   <p className="mb-4">
-                    {t('about.personal.story.paragraph3')}
+                    To me, <strong>code is a tool to solve human problems</strong>. Every line I write is informed by pedagogy and deep user journey understanding. I approach development with the same care I brought to helping people navigate life's challenges—with empathy, strategic thinking, and a focus on outcomes.
                   </p>
+                  
+                  <h4 className="text-xl font-bold text-foreground mb-4 mt-6">Discipline Under Pressure</h4>
+                  
+                  <p className="mb-4">
+                    I'm also a <strong>2x World Brazilian Jiu-Jitsu Champion</strong>. This isn't just a cool fact—it demonstrates discipline, focus, and the ability to perform under immense pressure. In both BJJ and product development, success comes from strategy, persistence, and the mental toughness to push through when things get difficult.
+                  </p>
+                  
+                  <h4 className="text-xl font-bold text-foreground mb-4 mt-6">Global Perspective, Remote Ready</h4>
                   
                   <p>
-                    {t('about.personal.story.paragraph4')}
+                    Having lived and worked in <strong>New Zealand, Brazil, and the United States</strong>, I bring a truly global perspective to every project. I'm comfortable working across time zones and cultures, making me the ideal technical partner for distributed teams and international projects.
                   </p>
                 </div>
               </CardContent>
@@ -190,8 +220,8 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">{t('about.services.title')}</h2>
-              <p className="text-lg text-muted-foreground">{t('about.services.subtitle')}</p>
+              <h2 className="text-3xl font-bold text-foreground mb-4">What I Build</h2>
+              <p className="text-lg text-muted-foreground">Specialized solutions that combine technical excellence with business strategy</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -226,8 +256,8 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">{t('about.values.title')}</h2>
-              <p className="text-lg text-muted-foreground">{t('about.values.subtitle')}</p>
+              <h2 className="text-3xl font-bold text-foreground mb-4">Core Values</h2>
+              <p className="text-lg text-muted-foreground">The principles that guide everything I build</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -253,17 +283,20 @@ export default function About() {
           <div className="max-w-4xl mx-auto">
             <Card className="border-0 shadow-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
               <CardContent className="p-8 md:p-12 text-center">
-                <h2 className="text-3xl font-bold mb-6">{t('about.cta.title')}</h2>
+                <h2 className="text-3xl font-bold mb-6">Let's Build Something Exceptional</h2>
                 <p className="text-xl mb-8 text-blue-100">
-                  {t('about.cta.description')}
+                  Ready to work with a Product Engineer who understands both code and business strategy?
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" variant="secondary" className="bg-card text-primary hover:bg-muted border border-border">
-                    {t('about.cta.strategyCall')}
-                  </Button>
+                  <Link href="/contact">
+                    <Button size="lg" variant="secondary" className="bg-card text-primary hover:bg-muted border border-border w-full">
+                      Book Strategy Call
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                   <Link href="/portfolio">
                     <Button size="lg" variant="secondary" className="bg-card text-primary hover:bg-muted border border-border w-full">
-                      {t('about.cta.portfolio')}
+                      View Portfolio
                     </Button>
                   </Link>
                 </div>

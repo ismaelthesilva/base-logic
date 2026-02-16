@@ -14,7 +14,7 @@ import {
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import ThemeToggle from "./ThemeToggle";
-import { Moon, Sun, Globe, Menu, X, ChevronDown } from "lucide-react";
+import { Moon, Sun, Globe, Menu, X, ChevronDown, Code } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,8 +48,8 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <img
-                src="/images/codeBaseLogoSquare2.png"
-                alt="Base Logic Logo"
+                src="/ismacopyLogo.png"
+                alt="Base Logic Labs Logo"
                 className="w-8 h-8 rounded-lg object-cover"
               />
               <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">

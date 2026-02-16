@@ -27,72 +27,72 @@ import { useLanguage } from '../../contexts/LanguageContext';
 const services = [
   {
     icon: <Code2 className="h-12 w-12 text-blue-600" />,
-    title: "Full-Stack Web Development",
-    subtitle: "Build. Scale. Dominate.",
-    description: "Custom web applications that don't just look good—they convert visitors into customers and scale with your growth.",
+    title: "Custom SaaS Development",
+    subtitle: "Vertical SaaS. Built to Scale.",
+    description: "End-to-end MVP building using the T3 Stack or Next.js ecosystem. Specialized in Vertical SaaS solutions for niche industries with proven frameworks.",
     features: [
-      "React/Next.js Applications",
-      "E-commerce Platforms", 
-      "Database Design & APIs",
-      "Mobile-Responsive Design",
-      "Performance Optimization",
-      "SEO Implementation"
+      "Next.js & React Applications",
+      "PostgreSQL Database Architecture", 
+      "Role-Based Access Control (RBAC)",
+      "Stripe Payment Integration",
+      "RESTful API Design",
+      "Cloud Deployment (Vercel/AWS)"
     ],
     deliverables: [
-      "Lightning-fast loading speeds (90+ Lighthouse scores)",
-      "Mobile-first responsive design",
-      "SEO-optimized for organic growth",
-      "Scalable architecture for future expansion"
+      "Production-ready MVP with scalable architecture",
+      "Comprehensive API documentation",
+      "Admin dashboard with analytics",
+      "Automated testing and CI/CD pipeline"
     ],
-    investment: "Starting at $2,997",
-    timeline: "2-6 weeks",
-    results: "40% faster sites that convert 3x better than industry average"
+    investment: "Starting at $8,000",
+    timeline: "4-8 weeks",
+    results: "Scalable platforms handling 10K+ users with 99.9% uptime"
   },
   {
-    icon: <PenTool className="h-12 w-12 text-purple-600" />,
-    title: "Conversion Copywriting",
-    subtitle: "Words That Sell.",
-    description: "Psychology-driven copy that transforms your website visitors into paying customers through proven persuasion frameworks.",
+    icon: <Zap className="h-12 w-12 text-purple-600" />,
+    title: "AI & Automation Integration",
+    subtitle: "Intelligent Workflows.",
+    description: "Implementing LLMs (OpenAI/Anthropic) for RAG pipelines, chatbots, and automated business workflows that save time and increase efficiency.",
     features: [
-      "Landing Page Copy",
-      "Sales Page Creation",
-      "Email Sequences", 
-      "Ad Copy & Creative",
-      "Website Copy Optimization",
-      "A/B Testing Copy"
+      "Custom AI Chatbots",
+      "RAG Pipeline Development",
+      "OpenAI & Anthropic APIs", 
+      "Business Process Automation",
+      "Document Intelligence",
+      "AI-Enhanced User Experiences"
     ],
     deliverables: [
-      "High-converting sales pages (8-15% conversion rates)",
-      "Email sequences that nurture and sell",
-      "Ad copy that stops the scroll",
-      "Website copy that builds trust and drives action"
+      "Production-ready AI integrations",
+      "Custom-trained models for your data",
+      "Automated workflow implementations",
+      "Performance monitoring and optimization"
     ],
-    investment: "Starting at $1,497",
-    timeline: "1-3 weeks",
-    results: "12.5% average conversion rates (3x industry standard)"
+    investment: "Starting at $6,000",
+    timeline: "3-6 weeks",
+    results: "60% reduction in manual tasks, 3x faster customer support"
   },
   {
-    icon: <TrendingUp className="h-12 w-12 text-green-600" />,
-    title: "Digital Marketing Strategy",
-    subtitle: "Traffic That Converts.",
-    description: "Complete marketing funnels that attract your ideal customers and guide them to purchase through strategic campaigns.",
+    icon: <Target className="h-12 w-12 text-green-600" />,
+    title: "Conversion-Driven UI/UX",
+    subtitle: "Psychology Meets Code.",
+    description: "Auditing and rebuilding interfaces specifically to increase user retention and sales. Combining engineering excellence with copywriting psychology.",
     features: [
-      "Marketing Funnel Strategy",
-      "Social Media Campaigns",
-      "PPC Ad Management",
-      "Content Marketing",
-      "Analytics & Optimization",
-      "Conversion Rate Optimization"
+      "Conversion Rate Optimization",
+      "Psychology-Driven Design",
+      "A/B Testing Framework",
+      "User Journey Mapping",
+      "Persuasive Copywriting",
+      "Analytics & Heat Mapping"
     ],
     deliverables: [
-      "Complete marketing funnel setup",
-      "Targeted ad campaigns across platforms",
-      "Content calendar and strategy",
-      "Monthly performance reports and optimization"
+      "Complete UI/UX audit with actionable insights",
+      "Redesigned high-converting interfaces",
+      "A/B testing implementation and analysis",
+      "Conversion-optimized copy and CTAs"
     ],
-    investment: "Starting at $2,497/month",
-    timeline: "Ongoing",
-    results: "300% ROI within 90 days for most clients"
+    investment: "Starting at $4,500",
+    timeline: "2-4 weeks",
+    results: "Average 150% increase in conversion rates within 60 days"
   }
 ];
 
@@ -122,16 +122,16 @@ const testimonials = [
     name: "Jackie Souto",
     role: "BJJ World Champion & Coach",
     company: "Jackie Souto Academy",
-    quote: "Ismael transformed my personal brand into a profitable business. His combination of technical skills and marketing expertise generated over $50K in course sales within the first 3 months.",
-    results: "$50K+ revenue increase",
+    quote: "Ismael built a complete SaaS platform for my academy with payment integration, course management, and user authentication. His understanding of both the technical side and business strategy was invaluable.",
+    results: "Full-featured academy platform with 300+ active students",
     image: "/images/bjjstory-usa.png"
   },
   {
     name: "BJJ Championship",
     role: "Event Organizer",
     company: "World BJJ Championships",
-    quote: "The landing page and VSL that Ismael created achieved a 12.5% conversion rate - triple what we were getting before. The event sold out faster than ever.",
-    results: "12.5% conversion rate",
+    quote: "The BJJChamp platform Ismael architected now handles 10K+ monthly users with real-time data and complex role-based permissions. His product engineering mindset made all the difference.",
+    results: "Scalable platform serving 10K+ users monthly",
     image: "/images/bjjchamp-nz.png"
   }
 ];
@@ -165,52 +165,36 @@ export default function Services() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 px-6 py-3 rounded-full mb-8">
               <Star className="h-5 w-5 text-blue-600" />
-              <span className="font-semibold text-blue-600">{t('servicesPage.badge')}</span>
+              <span className="font-semibold text-blue-600">Services</span>
               <Star className="h-5 w-5 text-blue-600" />
             </div>
             
             <h1 className="text-6xl md:text-7xl font-extrabold mb-8 leading-tight">
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                {t('servicesPage.title')}
+                Product Engineering
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-              {t('servicesPage.description')}
+              Specialized solutions that combine Silicon Valley engineering with revenue-focused strategy
             </p>
             
             <div className="bg-card/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl max-w-4xl mx-auto mb-12 border border-border">
               <h2 className="text-2xl font-bold text-foreground mb-6">
-                🚨 Is Your Business Suffering From These Profit Killers?
+                What Makes Base Logic Labs Different?
               </h2>
-              <div className="grid md:grid-cols-2 gap-6 text-left">
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-red-600">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span>Website that looks amateur and drives people away</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-red-600">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span>Landing pages with terrible conversion rates</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-red-600">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span>Marketing that wastes money with no results</span>
-                  </div>
+              <div className="grid md:grid-cols-3 gap-6 text-left">
+                <div className="space-y-2">
+                  <div className="text-blue-600 font-bold text-lg">Technical Excellence</div>
+                  <p className="text-sm text-muted-foreground">Enterprise-grade architecture using Next.js, TypeScript, and PostgreSQL</p>
                 </div>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-red-600">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span>Slow, buggy websites that frustrate customers</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-red-600">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span>Copy that bores instead of sells</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-red-600">
-                    <div className="w-2 h-2 bg-red-600 rounded-full"></div>
-                    <span>No clear strategy to grow your business</span>
-                  </div>
+                <div className="space-y-2">
+                  <div className="text-purple-600 font-bold text-lg">Business Strategy</div>
+                  <p className="text-sm text-muted-foreground">20+ years of leadership experience translates to products that drive ROI</p>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-green-600 font-bold text-lg">Conversion Focus</div>
+                  <p className="text-sm text-muted-foreground">Psychology-driven design that increases user retention and revenue</p>
                 </div>
               </div>
             </div>
@@ -219,11 +203,11 @@ export default function Services() {
               <Link href="/contact">
                 <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-bold rounded-full shadow-xl">
                   <Zap className="mr-2 h-5 w-5" />
-                  Stop The Bleeding - Get Started Today
+                  Book Strategy Call
                 </Button>
               </Link>
               <p className="text-sm text-muted-foreground">
-                ⚡ Free consultation • No obligations • Results guaranteed
+                Free consultation • Custom solutions • Proven results
               </p>
             </div>
           </div>
@@ -235,11 +219,11 @@ export default function Services() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Services That Actually <span className="text-blue-600">Make You Money</span>
+              Three Core <span className="text-blue-600">Service Offerings</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Each service is designed with one goal: <strong>Maximize your ROI</strong>. 
-              No fluff, no filler—just proven strategies that put money in your pocket.
+              Each service is designed to solve specific business challenges with measurable results. 
+              No cookie-cutter solutions—just proven frameworks tailored to your needs.
             </p>
           </div>
 
@@ -439,20 +423,20 @@ export default function Services() {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
-              Ready to Stop Losing Money?
+              Ready to Build Something Exceptional?
             </h2>
             
             <p className="text-xl md:text-2xl mb-8 opacity-90 leading-relaxed">
-              Every day you wait is another day your competitors are capturing the customers you should be getting. 
-              <strong className="block mt-2">Let's change that today.</strong>
+              Partner with a Product Engineer who understands both code and business strategy. 
+              <strong className="block mt-2">Let's architect your next big win.</strong>
             </p>
             
             <div className="bg-background/10 backdrop-blur-sm p-8 rounded-2xl mb-12">
-              <h3 className="text-2xl font-bold mb-6">🎁 Limited Time Bonus</h3>
+              <h3 className="text-2xl font-bold mb-6">What You Get</h3>
               <div className="grid md:grid-cols-3 gap-6 text-lg">
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-6 w-6 text-green-400" />
-                  <span>Free 30-day support</span>
+                  <span>30-day post-launch support</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-6 w-6 text-green-400" />
@@ -460,11 +444,11 @@ export default function Services() {
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle className="h-6 w-6 text-green-400" />
-                  <span>Marketing consultation</span>
+                  <span>Strategy consultation</span>
                 </div>
               </div>
               <p className="text-sm mt-4 opacity-75">
-                Worth $2,500 - Yours free when you start this month
+                Included with every project
               </p>
             </div>
 
@@ -472,28 +456,28 @@ export default function Services() {
               <Link href="/contact">
                 <Button className="bg-background text-blue-600 hover:bg-muted/80 px-12 py-6 text-2xl font-bold rounded-full shadow-2xl">
                   <MessageSquare className="mr-3 h-7 w-7" />
-                  {t('servicesPage.cta.button')}
+                  Book Strategy Call
                 </Button>
               </Link>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm opacity-75">
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4" />
-                  <span>15-minute call</span>
+                  <span>30-minute consultation</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Shield className="h-4 w-4" />
-                  <span>No sales pitch</span>
+                  <span>No pressure</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Target className="h-4 w-4" />
-                  <span>Custom strategy</span>
+                  <span>Tailored solutions</span>
                 </div>
               </div>
 
               <p className="text-lg opacity-90 max-w-2xl mx-auto">
-                In just 15 minutes, I'll show you exactly how to turn your website into a profit-generating machine. 
-                <strong>100% free, no strings attached.</strong>
+                Let's discuss your project goals and explore how we can build a solution that drives real business results. 
+                <strong>Free consultation, no obligations.</strong>
               </p>
             </div>
           </div>
