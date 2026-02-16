@@ -26,6 +26,7 @@ import {
   Video,
   Image as ImageIcon,
   Globe,
+  Code,
 } from "lucide-react";
 
 export default function Home() {
@@ -45,189 +46,109 @@ export default function Home() {
     setIsClient(true);
   }, []);
 
-  const technologies = [
-    {
-      name: "React & Vite",
-      icon: "⚛️",
-      description: t("technologies.items.react"),
-    },
-    {
-      name: "Tailwind CSS",
-      icon: "🎨",
-      description: t("technologies.items.tailwind"),
-    },
-    {
-      name: "shadcn/ui",
-      icon: "🚀",
-      description: t("technologies.items.shadcn"),
-    },
-    {
-      name: "Facebook Ads",
-      icon: "📱",
-      description: t("technologies.items.facebook"),
-    },
-    {
-      name: "Google Ads",
-      icon: "🔍",
-      description: t("technologies.items.google"),
-    },
-    {
-      name: "Hotmart Integration",
-      icon: "💰",
-      description: t("technologies.items.hotmart"),
-    },
-    {
-      name: "Video Editing",
-      icon: "🎬",
-      description: t("technologies.items.video"),
-    },
-    {
-      name: "Landing Pages",
-      icon: "📄",
-      description: t("technologies.items.landing"),
-    },
-  ];
-
-  const SERVER_TECH_DESCRIPTIONS = [
-    "Lightning-fast web development",
-    "Utility-first CSS for rapid UI",
-    "Composable UI primitives for React",
-    "Performance-focused ad strategies for Facebook",
-    "Search intent and high-ROI Google Ads",
-    "Seamless Hotmart integration and monetization",
-    "Professional video editing and VSL production",
-    "High-converting landing pages and funnels",
-  ];
-
   const technologiesStable = [
     {
-      name: "React & Vite",
-      icon: "⚛️",
-      description: SERVER_TECH_DESCRIPTIONS[0],
+      name: "Next.js",
+      icon: "⚡",
+      description: "Production-grade React framework for modern web apps",
+    },
+    {
+      name: "TypeScript",
+      icon: "📘",
+      description: "Type-safe code for enterprise reliability",
+    },
+    {
+      name: "PostgreSQL",
+      icon: "🐘",
+      description: "Enterprise database for scalable data architecture",
+    },
+    {
+      name: "Node.js",
+      icon: "🟢",
+      description: "High-performance server-side JavaScript runtime",
     },
     {
       name: "Tailwind CSS",
       icon: "🎨",
-      description: SERVER_TECH_DESCRIPTIONS[1],
-    },
-    { name: "shadcn/ui", icon: "🚀", description: SERVER_TECH_DESCRIPTIONS[2] },
-    {
-      name: "Facebook Ads",
-      icon: "📱",
-      description: SERVER_TECH_DESCRIPTIONS[3],
+      description: "Utility-first CSS for rapid UI development",
     },
     {
-      name: "Google Ads",
-      icon: "🔍",
-      description: SERVER_TECH_DESCRIPTIONS[4],
+      name: "Supabase",
+      icon: "⚡",
+      description: "Backend-as-a-Service for rapid development",
     },
     {
-      name: "Hotmart Integration",
-      icon: "💰",
-      description: SERVER_TECH_DESCRIPTIONS[5],
+      name: "AI Integration",
+      icon: "🤖",
+      description: "OpenAI & Anthropic APIs for intelligent features",
     },
     {
-      name: "Video Editing",
-      icon: "🎬",
-      description: SERVER_TECH_DESCRIPTIONS[6],
-    },
-    {
-      name: "Landing Pages",
-      icon: "📄",
-      description: SERVER_TECH_DESCRIPTIONS[7],
+      name: "Vercel",
+      icon: "▲",
+      description: "Edge deployment for optimal performance",
     },
   ];
 
   const services = [
     {
-      title: t("services.copywriting.title"),
-      description: t("services.copywriting.description"),
-      icon: <FileText className="h-8 w-8" />,
+      title: "Full Stack Architecture",
+      description:
+        "Enterprise-grade web applications built with Next.js, Node.js, and PostgreSQL. Scalable, secure, and optimized for performance.",
+      icon: <Code className="h-8 w-8" />,
       features: [
-        "Sales Pages",
-        "Email Campaigns",
-        "Ad Copy",
-        "Website Content",
+        "Next.js & React",
+        "Node.js Backend",
+        "PostgreSQL Database",
+        "API Design",
       ],
     },
     {
-      title: t("services.landingPages.title"),
-      description: t("services.landingPages.description"),
+      title: "Conversion Engineering",
+      description:
+        "Using psychology to reduce churn and increase user retention. Every interface decision is backed by behavioral science.",
       icon: <Target className="h-8 w-8" />,
       features: [
-        "High-Converting Design",
-        "A/B Testing",
-        "Mobile Optimized",
-        "Analytics Integration",
+        "Psychology-Driven UX",
+        "User Retention Strategies",
+        "Conversion Optimization",
+        "A/B Testing Framework",
       ],
     },
     {
-      title: t("services.videoCreation.title"),
-      description: t("services.videoCreation.description"),
-      icon: <Video className="h-8 w-8" />,
+      title: "Speed to Market",
+      description:
+        "AI-enhanced workflows for rapid MVP delivery. Get to market faster with proven frameworks and automation.",
+      icon: <Zap className="h-8 w-8" />,
       features: [
-        "VSL Creation",
-        "Testimonials",
-        "Product Demos",
-        "Social Media Content",
+        "Rapid MVP Development",
+        "AI-Enhanced Workflows",
+        "Agile Methodology",
+        "Continuous Deployment",
       ],
     },
-    {
-      title: t("services.digitalMarketing.title"),
-      description: t("services.digitalMarketing.description"),
-      icon: <TrendingUp className="h-8 w-8" />,
-      features: [
-        "Facebook Ads",
-        "Google Ads",
-        "Email Marketing",
-        "Marketing Automation",
-      ],
-    },
-  ];
-
-  const SERVER_SERVICE_TITLES = [
-    "Copywriting That Converts",
-    "Landing Pages & Funnels",
-    "Video & Image Creation",
-    "Complete Digital Marketing",
-  ];
-
-  const SERVER_SERVICE_DESCRIPTIONS = [
-    "Psychological triggers and persuasive copy that turns visitors into buyers",
-    "High-converting landing pages optimized for Facebook and Google Ads",
-    "Professional video sales letters and stunning visuals that sell",
-    "Full-funnel digital marketing strategies for growth",
   ];
 
   const testimonials = [
     {
-      name: "Carlos Silva",
-      company: "TechStart",
-      text: "Increased our conversion rate by 340% in just 2 months!",
-      result: "+340% Conversion",
+      name: "Jackie Souto",
+      company: "Jackie Souto Academy",
+      text: "Ismael built a complete SaaS platform for my academy with payment integration, course management, and user authentication. The technical execution was flawless.",
+      result: "300+ Active Students",
     },
     {
-      name: "Maria Santos",
-      company: "EduOnline",
-      text: "The landing page generated R$ 500k in the first launch.",
-      result: "R$ 500k Revenue",
+      name: "BJJ Championship",
+      company: "World BJJ Championships",
+      text: "The BJJChamp platform now handles 10K+ monthly users with real-time data and complex role-based permissions. Outstanding product engineering.",
+      result: "10K+ Monthly Users",
     },
     {
-      name: "João Oliveira",
-      company: "FitnessPro",
-      text: "Best investment in marketing I ever made. ROI of 12x!",
-      result: "12x ROI",
+      name: "Soute Doces",
+      company: "E-commerce Platform",
+      text: "The performance optimization for our e-commerce platform was incredible. 90+ Lighthouse scores and sales increased by 180%.",
+      result: "180% Sales Increase",
     },
   ];
 
-  const clients = [
-    { name: "TechNova", logo: "🏢" },
-    { name: "Boostly", logo: "📈" },
-    { name: "MarketEdge", logo: "🎯" },
-    { name: "SalesSuite", logo: "💼" },
-    { name: "LaunchMax", logo: "🚀" },
-    { name: "GrowthForge", logo: "🧪" },
-  ];
 
   return (
     <div
@@ -242,31 +163,28 @@ export default function Home() {
           <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
         <div className="relative container mx-auto px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center text-white">
+          <div className="max-w-4xl mx-auto text-center text-white">
             <img
-              src="/images/codeBaseLogoSquare2.png"
+              src="/ismacopyLogo.png"
               alt="Base Logic Labs Logo"
-              className="mx-auto mb-6 w-24 h-24 rounded-2xl shadow-lg border-4 border-white/20 bg-white/10"
+              className="mx-auto mb-6 w-24 h-24 rounded-2xl shadow-lg"
             />
-            <h1 className="text-5xl sm:text-6xl font-extrabold mb-4 leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Base Logic Labs
+            <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              Engineered for Growth
             </h1>
-            <p className="text-xl sm:text-2xl mb-6 opacity-90 leading-relaxed text-gray-200 font-medium">
-              Bridging Silicon Valley-grade engineering and sales psychology.
-              <br />
-              <span className="text-lg text-blue-200">
-                We architect revenue engines for ambitious SaaS founders and
-                enterprise teams.
-              </span>
+            <p className="text-xl sm:text-2xl mb-8 leading-relaxed text-gray-200 font-medium">
+              Base Logic Labs is a specialized studio partnering with global
+              companies to architect scalable web apps that drive measurable
+              business results
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button
                 asChild
                 size="lg"
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-lg px-8 py-4 shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
               >
-                <Link href="/contact">
-                  Start Your Project
+                <Link href="/portfolio">
+                  View Portfolio
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -276,110 +194,62 @@ export default function Home() {
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
               >
-                <Link href="/about">
-                  <Play className="mr-2 h-5 w-5" />
-                  About the Studio
-                </Link>
+                <Link href="/contact">Book Strategy Call</Link>
               </Button>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
-              <div className="bg-white/10 rounded-xl p-4 shadow-md">
-                <div className="text-lg font-bold text-blue-200 mb-1">
-                  Studio Model
+            {/* Social Proof */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span>20+ Years Leadership Experience</span>
                 </div>
-                <div className="text-sm text-gray-100">
-                  Elite teams, structured delivery, no freelancer chaos.
-                </div>
-              </div>
-              <div className="bg-white/10 rounded-xl p-4 shadow-md">
-                <div className="text-lg font-bold text-blue-200 mb-1">
-                  Product Mindset
-                </div>
-                <div className="text-sm text-gray-100">
-                  Every line of code is a business decision. We build for
-                  outcomes.
+                <div className="flex items-center gap-2">
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <span>2x World BJJ Champion</span>
                 </div>
               </div>
-              <div className="bg-white/10 rounded-xl p-4 shadow-md">
-                <div className="text-lg font-bold text-blue-200 mb-1">
-                  Authority
-                </div>
-                <div className="text-sm text-gray-100">
-                  Led by Ismael Silva, global SaaS & enterprise delivery expert.
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 text-sm text-gray-300">
-              <span className="font-semibold">HQ:</span> New Zealand &bull;{" "}
-              <span className="font-semibold">Serving:</span> US & Global
-              Clients
             </div>
           </div>
         </div>
       </section>
 
-      {/* Client Logos */}
-      <section className="py-12 bg-muted/50 border-b border-gray-200">
-        <div className="container mx-auto px-4">
-          <p
-            className="text-center text-muted-foreground mb-8 font-medium"
-            suppressHydrationWarning={true}
-          >
-            {isClient ? t("clients.title") : "Trusted by leading companies"}
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8">
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 text-2xl font-bold text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span className="text-3xl">{client.logo}</span>
-                <span>{client.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
+      {/* Value Propositions Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16" suppressHydrationWarning={true}>
+          <div className="text-center mb-16">
             <Badge className="mb-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-              {isClient ? t("services.badge") : "🚀 Services"}
+              Our Approach
             </Badge>
             <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              {isClient ? t("services.title") : "What I"}{" "}
+              Where Engineering Meets{" "}
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                {isClient ? t("services.titleHighlight") : "Deliver"}
+                Business Growth
               </span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              {isClient
-                ? t("services.description")
-                : "Complete digital solutions that drive results and grow your business through proven strategies."}
+              We don't just write code. We build business solutions that combine
+              technical excellence with revenue-focused strategy.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <Card
                 key={index}
                 className="bg-card border hover:border-primary/30 transition-all duration-300 hover:shadow-xl"
               >
                 <CardHeader>
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg text-white">
+                  <div className="flex flex-col items-center text-center mb-4">
+                    <div className="p-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg text-white mb-4">
                       {service.icon}
                     </div>
-                    <div>
-                      <CardTitle className="text-xl text-gray-900 dark:text-white">
-                        {SERVER_SERVICE_TITLES[index] || service.title}
-                      </CardTitle>
-                    </div>
+                    <CardTitle className="text-xl text-gray-900 dark:text-white">
+                      {service.title}
+                    </CardTitle>
                   </div>
-                  <CardDescription className="text-base leading-relaxed text-gray-600 dark:text-gray-300">
-                    {SERVER_SERVICE_DESCRIPTIONS[index] || service.description}
+                  <CardDescription className="text-base leading-relaxed text-gray-600 dark:text-gray-300 text-center">
+                    {service.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -403,24 +273,22 @@ export default function Home() {
       {/* Technologies Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16" suppressHydrationWarning={true}>
+          <div className="text-center mb-16">
             <Badge className="mb-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white">
-              {isClient ? t("technologies.badge") : "⚡ Technologies"}
+              Tech Stack
             </Badge>
             <h2 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-              {isClient ? t("technologies.title") : "Modern"}{" "}
+              Enterprise-Grade{" "}
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                {isClient ? t("technologies.titleHighlight") : "Stack"}
+                Technology
               </span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              {isClient
-                ? t("technologies.description")
-                : "Cutting-edge tools and technologies that power exceptional results."}
+              Modern, scalable tools for building production-ready applications
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {technologiesStable.map((tech, index) => (
               <Card
                 key={index}
@@ -467,7 +335,6 @@ export default function Home() {
                 <CardHeader>
                   <div className="flex items-center gap-4 mb-4">
                     <Avatar className="border-2 border-gray-200 dark:border-white/20">
-                      <AvatarImage src={`/images/isma-profile21.jpg`} />
                       <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-600 text-white">
                         {testimonial.name
                           .split(" ")

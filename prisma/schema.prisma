@@ -9,3 +9,75 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum Country {
+  USA
+  BRAZIL
+}
+
+enum AssetType {
+  STOCK
+  ETF
+  REIT
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Asset {
+  id           String   @id @default(cuid())
+  symbol       String
+  name         String
+  description  String?
+  country      Country
+  type         AssetType
+  riskLevel    String?
+  expenseRatio Float?
+  dividendYield Float?
+  currentPrice Float?
+  updatedAt    DateTime @updatedAt
+  createdAt    DateTime @default(now())
+
+  fundamentals Fundamentals[]
+  prices       AssetPrice[]
+
+  @@unique([symbol, country])
+  @@index([country, type])
+  @@index([symbol])
+}
+
+model Fundamentals {
+  id            String  @id @default(cuid())
+  assetId       String
+  year          Int
+  receitaLiquida Float?
+  lucroLiquido   Float?
+  roe           Float?
+  margemLiquida Float?
+  dividaLiquida Float?
+  ebitda        Float?
+  dividendPercentage Float?
+
+  asset         Asset   @relation(fields: [assetId], references: [id], onDelete: Cascade)
+
+  @@unique([assetId, year])
+  @@index([year])
+}
+
+model AssetPrice {
+  id      String @id @default(cuid())
+  assetId String
+  year    Int
+  price   Float?
+
+  asset   Asset  @relation(fields: [assetId], references: [id], onDelete: Cascade)
+
+  @@unique([assetId, year])
+  @@index([year])
+}
