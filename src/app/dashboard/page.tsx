@@ -97,7 +97,7 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-bold">
-                  {loading ? "—" : (stats?.total ?? "—")}
+                  {loading ? "—" : stats?.total ?? "—"}
                 </div>
                 <p className="text-muted-foreground text-sm">All markets</p>
               </CardContent>
@@ -110,13 +110,13 @@ export default function DashboardPage() {
                 <div className="flex justify-between">
                   <span>USA</span>
                   <span className="font-medium">
-                    {loading ? "—" : (stats?.byCountry.USA ?? "—")}
+                    {loading ? "—" : stats?.byCountry.USA ?? "—"}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Brazil</span>
                   <span className="font-medium">
-                    {loading ? "—" : (stats?.byCountry.BRAZIL ?? "—")}
+                    {loading ? "—" : stats?.byCountry.BRAZIL ?? "—"}
                   </span>
                 </div>
               </CardContent>
@@ -129,19 +129,19 @@ export default function DashboardPage() {
                 <div className="flex justify-between">
                   <span>Stocks</span>
                   <span className="font-medium">
-                    {loading ? "—" : (stats?.byType.STOCK ?? "—")}
+                    {loading ? "—" : stats?.byType.STOCK ?? "—"}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>ETFs</span>
                   <span className="font-medium">
-                    {loading ? "—" : (stats?.byType.ETF ?? "—")}
+                    {loading ? "—" : stats?.byType.ETF ?? "—"}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>REITs</span>
                   <span className="font-medium">
-                    {loading ? "—" : (stats?.byType.REIT ?? "—")}
+                    {loading ? "—" : stats?.byType.REIT ?? "—"}
                   </span>
                 </div>
               </CardContent>

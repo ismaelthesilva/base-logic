@@ -4,13 +4,14 @@ This monorepo contains two applications and three shared packages, organized as 
 
 ## Applications
 
-- **Web Application** (`apps/web`): 
+- **Web Application** (`apps/web`):
+
   - A React-based web application.
   - Entry point: `apps/web/src/app.tsx`
   - Configuration: `apps/web/package.json`
   - TypeScript configuration: `apps/web/tsconfig.json`
 
-- **Admin Application** (`apps/admin`): 
+- **Admin Application** (`apps/admin`):
   - A React-based admin interface.
   - Entry point: `apps/admin/src/app.tsx`
   - Configuration: `apps/admin/package.json`
@@ -18,19 +19,21 @@ This monorepo contains two applications and three shared packages, organized as 
 
 ## Packages
 
-- **UI Package** (`packages/ui`): 
+- **UI Package** (`packages/ui`):
+
   - Contains reusable UI components and utilities.
   - Entry point: `packages/ui/src/index.ts`
   - Configuration: `packages/ui/package.json`
   - TypeScript configuration: `packages/ui/tsconfig.json`
 
-- **DB Package** (`packages/db`): 
+- **DB Package** (`packages/db`):
+
   - Contains database models and utilities.
   - Entry point: `packages/db/src/index.ts`
   - Configuration: `packages/db/package.json`
   - TypeScript configuration: `packages/db/tsconfig.json`
 
-- **Shared Package** (`packages/shared`): 
+- **Shared Package** (`packages/shared`):
   - Contains shared utilities and types.
   - Entry point: `packages/shared/src/index.ts`
   - Configuration: `packages/shared/package.json`

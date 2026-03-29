@@ -67,7 +67,7 @@ const Navbar = () => {
 
   const handleProtectedClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
+    href: string
   ) => {
     e.preventDefault();
     e.stopPropagation();

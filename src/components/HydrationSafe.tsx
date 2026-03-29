@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect, ReactNode } from "react";
 
 interface HydrationSafeProps {
   children: ReactNode;
@@ -8,7 +8,11 @@ interface HydrationSafeProps {
   className?: string;
 }
 
-export default function HydrationSafe({ children, fallback, className }: HydrationSafeProps) {
+export default function HydrationSafe({
+  children,
+  fallback,
+  className,
+}: HydrationSafeProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -16,11 +20,23 @@ export default function HydrationSafe({ children, fallback, className }: Hydrati
   }, []);
 
   if (!isClient && fallback) {
-    return <div className={className} suppressHydrationWarning={true}>{fallback}</div>;
+    return (
+      <div className={className} suppressHydrationWarning={true}>
+        {fallback}
+      </div>
+    );
   }
 
   if (!isClient) {
-    return <div className={className} suppressHydrationWarning={true} style={{ visibility: 'hidden' }}>{children}</div>;
+    return (
+      <div
+        className={className}
+        suppressHydrationWarning={true}
+        style={{ visibility: "hidden" }}
+      >
+        {children}
+      </div>
+    );
   }
 
   return <div className={className}>{children}</div>;

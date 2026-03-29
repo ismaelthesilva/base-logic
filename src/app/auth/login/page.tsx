@@ -4,7 +4,13 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Lock, Mail, ArrowRight, Eye, EyeOff, TrendingUp } from "lucide-react";
@@ -31,7 +37,7 @@ export default function LoginPage() {
 
       const raw = await res.text();
       const data = raw ? JSON.parse(raw) : {};
-      
+
       if (!res.ok) {
         setError(data.error || "Login failed. Please check your credentials.");
         return;
@@ -40,9 +46,11 @@ export default function LoginPage() {
       if (data.token) {
         localStorage.setItem("authToken", data.token);
       }
-      
+
       // Redirect to dashboard or the originally requested page
-      const redirectTo = new URLSearchParams(window.location.search).get('redirectTo') || '/dashboard';
+      const redirectTo =
+        new URLSearchParams(window.location.search).get("redirectTo") ||
+        "/dashboard";
       router.push(redirectTo);
     } catch (err) {
       console.error(err);
@@ -72,12 +80,16 @@ export default function LoginPage() {
             />
           </Link>
           <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-          <p className="text-gray-300">Sign in to access your investment dashboard</p>
+          <p className="text-gray-300">
+            Sign in to access your investment dashboard
+          </p>
         </div>
 
         <Card className="border-white/10 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl shadow-2xl">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center">Sign In</CardTitle>
+            <CardTitle className="text-2xl font-bold text-center">
+              Sign In
+            </CardTitle>
             <CardDescription className="text-center">
               Enter your credentials to access your account
             </CardDescription>

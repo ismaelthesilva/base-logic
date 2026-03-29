@@ -90,7 +90,7 @@ export default function InvestmentsPage() {
     return items.filter(
       (item) =>
         item.symbol.toLowerCase().includes(q) ||
-        item.name.toLowerCase().includes(q),
+        item.name.toLowerCase().includes(q)
     );
   }, [items, query]);
 
@@ -222,7 +222,7 @@ export default function InvestmentsPage() {
                           asset.country === "USA" ? "USD" : "BRL";
                         const score = scoreAsset(
                           asset,
-                          asset.latestFundamentals,
+                          asset.latestFundamentals
                         ).total;
 
                         return (

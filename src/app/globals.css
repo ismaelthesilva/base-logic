@@ -103,14 +103,15 @@
   .bg-gray-50 {
     background-color: color-mix(in srgb, var(--muted) 50%, transparent);
   }
-  
+
   /* Theme toggle animation */
   .theme-transition {
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke;
     transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   /* Enhanced theme support */
   .bg-white {
     background-color: var(--background);
@@ -127,7 +128,7 @@
   .bg-white\/90 {
     background-color: color-mix(in srgb, var(--card) 90%, transparent);
   }
-  
+
   /* Card improvements for dark mode */
   .border-gray-200,
   .border-slate-200,

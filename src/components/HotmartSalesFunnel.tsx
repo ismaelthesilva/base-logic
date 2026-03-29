@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useEffect } from "react";
 
@@ -17,11 +17,14 @@ const HotmartSalesFunnel = () => {
   useEffect(() => {
     // Create and load the Hotmart script
     const script = document.createElement("script");
-    script.src = "https://checkout.hotmart.com/lib/hotmart-checkout-elements.js";
+    script.src =
+      "https://checkout.hotmart.com/lib/hotmart-checkout-elements.js";
     script.async = true;
     script.onload = () => {
       if (window.checkoutElements) {
-        window.checkoutElements.init("salesFunnel").mount("#hotmart-sales-funnel");
+        window.checkoutElements
+          .init("salesFunnel")
+          .mount("#hotmart-sales-funnel");
       }
     };
 

@@ -1,13 +1,19 @@
-'use client';
+"use client";
 
 // apps/web/contexts/LanguageContext.tsx
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import type { JSX } from 'react';
-import enTranslations from '../locales/en.json';
-import ptTranslations from '../locales/pt.json';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
+import type { JSX } from "react";
+import enTranslations from "../locales/en.json";
+import ptTranslations from "../locales/pt.json";
 
 // Prevent SSR issues by checking if we're in the browser
-const isBrowser = typeof window !== 'undefined';
+const isBrowser = typeof window !== "undefined";
 
 interface LanguageContextType {
   language: string;
@@ -19,31 +25,36 @@ interface LanguageProviderProps {
   children: ReactNode;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 export const useLanguage = (): LanguageContextType => {
   // Create default fallback function
-  const defaultT = (key: string, options?: { returnObjects?: boolean }): any => {
+  const defaultT = (
+    key: string,
+    options?: { returnObjects?: boolean }
+  ): any => {
     // Provide basic fallback translations for common keys
     const fallbacks: Record<string, any> = {
-      'nav.home': 'Home',
-      'nav.about': 'About',
-      'nav.portfolio': 'Portfolio',
-      'nav.contact': 'Contact',
-      'nav.services': 'Services',
-      'hero.badge': '🔥 Converting 3x Better Than Industry Average',
-      'hero.title': 'Turn Your Traffic Into',
-      'hero.titleHighlight': 'Paying Customers'
+      "nav.home": "Home",
+      "nav.about": "About",
+      "nav.portfolio": "Portfolio",
+      "nav.contact": "Contact",
+      "nav.services": "Services",
+      "hero.badge": "🔥 Converting 3x Better Than Industry Average",
+      "hero.title": "Turn Your Traffic Into",
+      "hero.titleHighlight": "Paying Customers",
     };
-    
+
     return fallbacks[key] || key;
   };
 
   // Default return object
   const defaultReturn: LanguageContextType = {
-    language: 'en',
+    language: "en",
     changeLanguage: () => {},
-    t: defaultT
+    t: defaultT,
   };
 
   // During SSR, return default values immediately
@@ -63,18 +74,20 @@ export const useLanguage = (): LanguageContextType => {
 
 const translations: Record<string, any> = {
   en: enTranslations,
-  pt: ptTranslations
+  pt: ptTranslations,
 };
 
-export const LanguageProvider = ({ children }: LanguageProviderProps): JSX.Element => {
-  const [language, setLanguage] = useState<string>('en');
+export const LanguageProvider = ({
+  children,
+}: LanguageProviderProps): JSX.Element => {
+  const [language, setLanguage] = useState<string>("en");
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
     // Only access localStorage on the client side
     if (isBrowser) {
-      const savedLanguage = localStorage.getItem('language') || 'en';
+      const savedLanguage = localStorage.getItem("language") || "en";
       setLanguage(savedLanguage);
     }
   }, []);
@@ -83,7 +96,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps): JSX.Eleme
     setLanguage(lang);
     // Only access localStorage on the client side
     if (isBrowser) {
-      localStorage.setItem('language', lang);
+      localStorage.setItem("language", lang);
     }
   };
 
@@ -91,32 +104,32 @@ export const LanguageProvider = ({ children }: LanguageProviderProps): JSX.Eleme
   const t = (key: string, options?: { returnObjects?: boolean }): any => {
     // During SSR, always return English fallback to prevent hydration mismatch
     if (!isClient) {
-      const keys = key.split('.');
-      let value: any = translations['en'];
-      
+      const keys = key.split(".");
+      let value: any = translations["en"];
+
       for (const k of keys) {
-        if (value && typeof value === 'object') {
+        if (value && typeof value === "object") {
           value = value[k];
         } else {
           return key; // Return key if translation not found
         }
       }
-      
+
       return value || key;
     }
 
     // Client-side translation
-    const keys = key.split('.');
+    const keys = key.split(".");
     let value: any = translations[language];
-    
+
     for (const k of keys) {
-      if (value && typeof value === 'object') {
+      if (value && typeof value === "object") {
         value = value[k];
       } else {
         return key; // Return key if translation not found
       }
     }
-    
+
     return value || key;
   };
 

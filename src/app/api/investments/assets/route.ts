@@ -14,7 +14,7 @@ export async function GET(request: Request) {
 
   const limit = Math.min(
     Number.isFinite(Number(limitParam)) ? Number(limitParam) : 50,
-    MAX_LIMIT,
+    MAX_LIMIT
   );
 
   const where: any = {};

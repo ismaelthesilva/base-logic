@@ -9,8 +9,10 @@ export default function LoginRedirect() {
   useEffect(() => {
     // Redirect to the new auth/login page
     const params = new URLSearchParams(window.location.search);
-    const redirectTo = params.get('redirectTo') || '';
-    const newUrl = redirectTo ? `/auth/login?redirectTo=${redirectTo}` : '/auth/login';
+    const redirectTo = params.get("redirectTo") || "";
+    const newUrl = redirectTo
+      ? `/auth/login?redirectTo=${redirectTo}`
+      : "/auth/login";
     router.replace(newUrl);
   }, [router]);
 

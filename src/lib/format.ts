@@ -1,6 +1,6 @@
 export function formatNumber(
   value?: number | null,
-  options?: Intl.NumberFormatOptions,
+  options?: Intl.NumberFormatOptions
 ) {
   if (value === null || value === undefined || Number.isNaN(value)) return "—";
   return new Intl.NumberFormat("en-US", {
@@ -11,7 +11,7 @@ export function formatNumber(
 
 export function formatCurrency(
   value?: number | null,
-  currency: "USD" | "BRL" = "USD",
+  currency: "USD" | "BRL" = "USD"
 ) {
   if (value === null || value === undefined || Number.isNaN(value)) return "—";
   return new Intl.NumberFormat("en-US", {

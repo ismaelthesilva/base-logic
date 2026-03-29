@@ -1,7 +1,13 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import type { JSX } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
+import type { JSX } from "react";
 
 interface ThemeContextType {
   theme: string;
@@ -17,12 +23,12 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const useTheme = (): ThemeContextType => {
   // Default return object
   const defaultReturn: ThemeContextType = {
-    theme: 'light',
-    toggleTheme: () => {}
+    theme: "light",
+    toggleTheme: () => {},
   };
 
   // During SSR, return default values immediately
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return defaultReturn;
   }
 
@@ -36,58 +42,63 @@ export const useTheme = (): ThemeContextType => {
   }
 };
 
-export const ThemeProvider = ({ children }: ThemeProviderProps): JSX.Element => {
-  const [theme, setTheme] = useState<string>('light');
+export const ThemeProvider = ({
+  children,
+}: ThemeProviderProps): JSX.Element => {
+  const [theme, setTheme] = useState<string>("light");
 
   useEffect(() => {
     // Only access localStorage on the client side
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // Check for saved theme preference or default to system preference
-      const savedTheme = localStorage.getItem('theme');
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const savedTheme = localStorage.getItem("theme");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
       const initialTheme = savedTheme || systemTheme;
-      
+
       setTheme(initialTheme);
-    
+
       // Apply theme to document
-      if (initialTheme === 'dark') {
-        document.documentElement.classList.add('dark');
+      if (initialTheme === "dark") {
+        document.documentElement.classList.add("dark");
       } else {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.remove("dark");
       }
-      
+
       // Listen for system theme changes
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
       const handleChange = (e: MediaQueryListEvent) => {
-        if (!localStorage.getItem('theme')) {
-          const newTheme = e.matches ? 'dark' : 'light';
+        if (!localStorage.getItem("theme")) {
+          const newTheme = e.matches ? "dark" : "light";
           setTheme(newTheme);
-          if (newTheme === 'dark') {
-            document.documentElement.classList.add('dark');
+          if (newTheme === "dark") {
+            document.documentElement.classList.add("dark");
           } else {
-            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.remove("dark");
           }
         }
       };
-      
-      mediaQuery.addEventListener('change', handleChange);
-      return () => mediaQuery.removeEventListener('change', handleChange);
+
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
     }
   }, []);
 
   const toggleTheme = (): void => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    
+
     // Only access localStorage and document on the client side
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('theme', newTheme);
-      
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", newTheme);
+
       // Apply theme to document
-      if (newTheme === 'dark') {
-        document.documentElement.classList.add('dark');
+      if (newTheme === "dark") {
+        document.documentElement.classList.add("dark");
       } else {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.remove("dark");
       }
     }
   };

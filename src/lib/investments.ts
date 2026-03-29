@@ -10,7 +10,7 @@ export type AssetMetrics = {
 };
 
 export function calculateDebtToEbitda(
-  fundamentals?: FundamentalsMetrics | null,
+  fundamentals?: FundamentalsMetrics | null
 ): number | null {
   if (!fundamentals?.dividaLiquida || !fundamentals?.ebitda) return null;
   return fundamentals.dividaLiquida / fundamentals.ebitda;
@@ -18,7 +18,7 @@ export function calculateDebtToEbitda(
 
 export function scoreAsset(
   asset?: AssetMetrics | null,
-  fundamentals?: FundamentalsMetrics | null,
+  fundamentals?: FundamentalsMetrics | null
 ) {
   const debtToEbitda = calculateDebtToEbitda(fundamentals);
 
