@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "next dev",
     "postinstall": "prisma generate",
     "dev:all": "concurrently \"npm run dev:next\" \"npm run dev:test\"",
     "dev:full": "concurrently \"npm run dev:next\" \"npm run dev:studio\" \"npm run dev:test\"",
