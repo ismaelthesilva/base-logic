@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "./ui/button";
@@ -14,14 +14,33 @@ import {
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import ThemeToggle from "./ThemeToggle";
-import { Moon, Sun, Globe, Menu, X, ChevronDown, Code } from "lucide-react";
+import { Moon, Sun, Globe, Menu, X, LogIn, LogOut, LayoutDashboard } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { language, changeLanguage, t } = useLanguage();
   const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    const check = () =>
+      setIsLoggedIn(!!localStorage.getItem("authToken"));
+    check();
+    window.addEventListener("storage", check);
+    return () => window.removeEventListener("storage", check);
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch {}
+    localStorage.removeItem("authToken");
+    setIsLoggedIn(false);
+    setIsOpen(false);
+    router.push("/");
+  };
 
   const navigationLinks = [
     {
@@ -160,7 +179,36 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <ThemeToggle />
 
-            {/* ...existing code... */}
+            {/* Auth */}
+            {isLoggedIn ? (
+              <div className="flex items-center gap-2">
+                <Link href="/dashboard">
+                  <Button variant="outline" size="sm" className="gap-1.5 h-8">
+                    <LayoutDashboard className="h-3.5 w-3.5" />
+                    Dashboard
+                  </Button>
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleLogout}
+                  className="gap-1.5 h-8 text-muted-foreground hover:text-red-500"
+                >
+                  <LogOut className="h-3.5 w-3.5" />
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <Link href="/auth/login">
+                <Button
+                  size="sm"
+                  className="gap-1.5 h-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700"
+                >
+                  <LogIn className="h-3.5 w-3.5" />
+                  Login
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -243,7 +291,42 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            {/* ...existing code... */}
+
+            {/* Mobile Auth */}
+            <div className="pt-2 border-t border-border mt-2">
+              {isLoggedIn ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    onClick={() => setIsOpen(false)}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                      isActivePath("/dashboard")
+                        ? "text-foreground bg-accent"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                    }`}
+                  >
+                    <LayoutDashboard className="h-4 w-4" />
+                    Dashboard
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center gap-2 w-full px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-red-500 hover:bg-accent/50 transition-colors"
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <Link
+                  href="/auth/login"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                >
+                  <LogIn className="h-4 w-4" />
+                  Login
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       )}
