@@ -58,7 +58,7 @@ export default function AssetDetailPage({
     const load = async () => {
       try {
         const res = await fetch(
-          `/api/investments/assets/${params.symbol}?country=${country}`,
+          `/api/investments/assets/${params.symbol}?country=${country}`
         );
         const data: AssetResponse = await res.json();
         setAsset(data.asset || null);

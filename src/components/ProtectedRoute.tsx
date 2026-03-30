@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { ReactNode } from 'react';
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import React, { ReactNode } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface ProtectedRouteProps {
   children: ReactNode;
@@ -16,7 +16,7 @@ const useAuth = () => {
   useEffect(() => {
     // Check authentication status - replace with your auth logic
     const checkAuth = () => {
-      const token = localStorage.getItem('authToken');
+      const token = localStorage.getItem("authToken");
       setIsAuthenticated(!!token);
       setIsLoading(false);
     };
@@ -33,7 +33,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      router.push('/login');
+      router.push("/login");
     }
   }, [isAuthenticated, isLoading, router]);
 

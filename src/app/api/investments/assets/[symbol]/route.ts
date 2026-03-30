@@ -4,7 +4,7 @@ import { Country } from "@prisma/client";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ symbol: string }> },
+  { params }: { params: Promise<{ symbol: string }> }
 ) {
   const { symbol } = await params;
   const { searchParams } = new URL(request.url);

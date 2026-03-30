@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "develop", "money"]
+  pull_request:
+    branches: ["main", "develop"]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Lint · Typecheck · Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        # DATABASE_URL is required for `prisma generate` (postinstall)
+        # A placeholder is fine — generate only reads the schema file
+        # `npm ci` with a macOS-generated lock file omits Linux-specific optional
+        # rollup binaries (@rollup/rollup-linux-x64-gnu). Deleting the lock file
+        # and using `npm install` forces npm to resolve all platform deps correctly.
+        env:
+          DATABASE_URL: "postgresql://ci:ci@localhost:5432/ci"
+        run: |
+          rm -f package-lock.json
+          npm install
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint (Prettier)
+        run: npm run lint:check
+
+      - name: Run tests with coverage
+        run: npm run test:coverage -- --run
+        env:
+          DATABASE_URL: "postgresql://ci:ci@localhost:5432/ci"
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 7

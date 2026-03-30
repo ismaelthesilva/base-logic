@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   if (!email || !password) {
     return NextResponse.json(
       { error: "Email and password are required" },
-      { status: 400 },
+      { status: 400 }
     );
   }
 
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
   if (existing) {
     return NextResponse.json(
       { error: "Email already registered" },
-      { status: 409 },
+      { status: 409 }
     );
   }
 
