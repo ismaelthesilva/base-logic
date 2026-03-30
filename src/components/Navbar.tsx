@@ -14,7 +14,16 @@ import {
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import ThemeToggle from "./ThemeToggle";
-import { Moon, Sun, Globe, Menu, X, LogIn, LogOut, LayoutDashboard } from "lucide-react";
+import {
+  Moon,
+  Sun,
+  Globe,
+  Menu,
+  X,
+  LogIn,
+  LogOut,
+  LayoutDashboard,
+} from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +34,7 @@ const Navbar = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const check = () =>
-      setIsLoggedIn(!!localStorage.getItem("authToken"));
+    const check = () => setIsLoggedIn(!!localStorage.getItem("authToken"));
     check();
     window.addEventListener("storage", check);
     return () => window.removeEventListener("storage", check);
