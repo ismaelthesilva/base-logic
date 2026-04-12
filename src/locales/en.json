@@ -8,15 +8,15 @@
     "investments": "Investments"
   },
   "hero": {
-    "badge": "🚀 Product Engineering Meets Sales Psychology",
+    "badge": "🇳🇿 Based in Auckland · Available Globally",
     "title": "Engineered for Growth",
-    "description": "Base Logic Labs is a specialized studio partnering with global companies to architect scalable web apps that drive measurable business results",
+    "description": "Helping small businesses in New Zealand and the US build web apps that actually grow your business — fast, reliable, and built to last.",
     "ctaPrimary": "View Portfolio",
-    "ctaSecondary": "Book Strategy Call",
+    "ctaSecondary": "Book a Free Call",
     "socialProof": {
       "leadership": "20+ Years Leadership Experience",
       "champion": "2x World BJJ Champion",
-      "global": "3 Countries, 2 Continents"
+      "global": "Auckland, NZ · US Remote Available"
     }
   },
   "services": {
@@ -56,10 +56,10 @@
     }
   },
   "technologies": {
-    "badge": "Enterprise-Grade Stack",
-    "title": "Enterprise-Grade",
-    "titleHighlight": "Technology",
-    "description": "Modern, scalable, and battle-tested technologies powering Fortune 500 companies",
+    "badge": "Production-Ready Stack",
+    "title": "Professional-Grade",
+    "titleHighlight": "Technology for Your Budget",
+    "description": "Modern, reliable technologies used by successful small businesses across New Zealand and the United States",
     "items": {
       "nextjs": "Enterprise React framework",
       "typescript": "Type-safe development",
@@ -97,16 +97,16 @@
     ]
   },
   "cta": {
-    "badge": "🚀 Ready to Start?",
-    "title": "Ready to Transform Your",
-    "titleHighlight": "Business?",
-    "description": "Get started today and transform your business with proven digital marketing strategies that deliver real results.",
-    "button": "Get Started Now",
-    "urgency": "Limited time offer - Act now!",
+    "badge": "� Let's Work Together",
+    "title": "Ready to Build Something",
+    "titleHighlight": "That Actually Works?",
+    "description": "Whether you're a small business in New Zealand or a US-based startup looking for a reliable developer — let's talk about building something great together.",
+    "button": "Get In Touch",
+    "urgency": "Free initial consultation · No obligation",
     "guarantees": [
-      "30-day money-back guarantee",
-      "24/7 support",
-      "Results in 30 days"
+      "Based in Auckland, NZ",
+      "US clients welcome",
+      "Free strategy call"
     ]
   },
   "contact": {

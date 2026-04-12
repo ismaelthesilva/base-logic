@@ -166,7 +166,7 @@ export default function Home() {
       suppressHydrationWarning={true}
     >
       {/* Hero Section - Base Logic Labs Branding */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-600/20 to-purple-600/20 animate-pulse"></div>
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-bounce"></div>
@@ -179,13 +179,13 @@ export default function Home() {
               alt="Base Logic Labs Logo"
               className="mx-auto mb-6 w-24 h-24 rounded-2xl shadow-lg"
             />
-            <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 pb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               {isClient ? t("hero.title") : "Engineered for Growth"}
             </h1>
             <p className="text-xl sm:text-2xl mb-8 leading-relaxed text-gray-200 font-medium">
               {isClient
                 ? t("hero.description")
-                : "Base Logic Labs is a specialized studio partnering with global companies to architect scalable web apps that drive measurable business results"}
+                : "Helping small businesses in New Zealand and the US build web apps that actually grow your business \u2014 fast, reliable, and built to last."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button
@@ -205,7 +205,7 @@ export default function Home() {
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
               >
                 <Link href="/contact">
-                  {isClient ? t("hero.ctaSecondary") : "Book Strategy Call"}
+                  {isClient ? t("hero.ctaSecondary") : "Book a Free Call"}
                 </Link>
               </Button>
             </div>
@@ -235,7 +235,7 @@ export default function Home() {
                   <span>
                     {isClient
                       ? t("hero.socialProof.global")
-                      : "3 Countries, 2 Continents"}
+                      : "Auckland, NZ · US Remote Available"}
                   </span>
                 </div>
               </div>
@@ -308,19 +308,21 @@ export default function Home() {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" suppressHydrationWarning={true}>
-            <Badge className="mb-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white">
-              {isClient ? t("technologies.badge") : "Enterprise-Grade Stack"}
+            <Badge className="mb-4 bg-gradient-to-r from-indigo-500 to-cyan-600 text-white">
+              {isClient ? t("technologies.badge") : "Production-Ready Stack"}
             </Badge>
             <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">
-              {isClient ? t("technologies.title") : "Enterprise-Grade"}{" "}
+              {isClient ? t("technologies.title") : "Professional-Grade"}{" "}
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                {isClient ? t("technologies.titleHighlight") : "Technology"}
+                {isClient
+                  ? t("technologies.titleHighlight")
+                  : "Technology for Your Budget"}
               </span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
               {isClient
                 ? t("technologies.description")
-                : "Modern, scalable, and battle-tested technologies powering Fortune 500 companies"}
+                : "Modern, reliable technologies used by successful teams across New Zealand and the United States"}
             </p>
           </div>
 
@@ -351,7 +353,7 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-blue-50 via-purple-50 to-blue-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" suppressHydrationWarning={true}>
-            <Badge className="mb-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 dark:text-white font-semibold">
+            <Badge className="mb-4 bg-gradient-to-r from-cyan-500 to-teal-600 text-white font-semibold">
               {isClient ? t("testimonials.badge") : "⭐ Testimonials"}
             </Badge>
             <h2 className="text-4xl font-bold mb-6 text-black dark:text-white">
@@ -416,39 +418,41 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-red-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-yellow-500/20 rounded-full blur-3xl animate-bounce"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl animate-bounce"></div>
         </div>
 
         <div
           className="relative container mx-auto px-4 text-center"
           suppressHydrationWarning={true}
         >
-          <Badge className="mb-6 bg-gradient-to-r from-red-500 to-orange-600 text-white animate-pulse">
-            {isClient ? t("cta.badge") : "🚀 Ready to Start?"}
+          <Badge className="mb-6 bg-gradient-to-r from-indigo-500 to-cyan-600 text-white">
+            {isClient ? t("cta.badge") : "� Let's Work Together"}
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black dark:text-white">
-            {isClient ? t("cta.title") : "Ready to Transform Your"}{" "}
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              {isClient ? t("cta.titleHighlight") : "Business?"}
+            {isClient ? t("cta.title") : "Ready to Build Something"}{" "}
+            <span className="bg-gradient-to-r from-indigo-400 to-cyan-500 bg-clip-text text-transparent">
+              {isClient ? t("cta.titleHighlight") : "That Actually Works?"}
             </span>
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-slate-600 dark:text-slate-300">
             {isClient
               ? t("cta.description")
-              : "Get started today and transform your business with proven digital marketing strategies that deliver real results."}
+              : "Whether you're a small business in New Zealand or a US-based startup looking for a reliable developer — let's talk about building something great together."}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-red-600 to-orange-700 hover:from-red-700 hover:to-orange-800 text-white font-bold text-lg px-8 py-4 shadow-2xl hover:shadow-red-500/25 transition-all duration-300"
+              className="bg-gradient-to-r from-indigo-600 to-cyan-700 hover:from-indigo-700 hover:to-cyan-800 text-white font-bold text-lg px-8 py-4 shadow-2xl hover:shadow-indigo-500/25 transition-all duration-300"
             >
-              {isClient ? t("cta.button") : "Get Started Now"}
+              {isClient ? t("cta.button") : "Get In Touch"}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <div className="text-sm text-slate-500 dark:text-slate-400">
-              {isClient ? t("cta.urgency") : "Limited time offer - Act now!"}
+              {isClient
+                ? t("cta.urgency")
+                : "Free initial consultation · No obligation"}
             </div>
           </div>
 
@@ -456,13 +460,13 @@ export default function Home() {
             {(isClient
               ? (t("cta.guarantees") as unknown as string[])
               : [
-                  "30-day money-back guarantee",
-                  "24/7 support",
-                  "Results in 30 days",
+                  "Based in Auckland, NZ",
+                  "US clients welcome",
+                  "Free strategy call",
                 ]
             ).map((guarantee: string, index: number) => (
               <div key={index} className="flex items-center gap-2">
-                <CheckCircle className="h-5 w-5 text-green-500 dark:text-green-400" />
+                <CheckCircle className="h-5 w-5 text-cyan-500 dark:text-cyan-400" />
                 <span>{guarantee}</span>
               </div>
             ))}

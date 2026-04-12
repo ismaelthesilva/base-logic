@@ -8,15 +8,15 @@
     "investments": "Investimentos"
   },
   "hero": {
-    "badge": "🚀 Engenharia de Produto Encontra Psicologia de Vendas",
+    "badge": "🇳🇿 Baseado em Auckland · Disponível Globalmente",
     "title": "Projetado para Crescimento",
-    "description": "Base Logic Labs é um estúdio especializado em parceria com empresas globais para arquitetar aplicações web escaláveis que geram resultados de negócio mensuráveis",
+    "description": "Ajudando pequenas empresas na Nova Zelândia e nos EUA a construir aplicações web que realmente fazem seu negócio crescer — rápido, confiável e para durar.",
     "ctaPrimary": "Ver Portfolio",
-    "ctaSecondary": "Agendar Estratégia",
+    "ctaSecondary": "Agendar Chamada Grátis",
     "socialProof": {
       "leadership": "20+ Anos de Experiência em Liderança",
       "champion": "2x Campeão Mundial de BJJ",
-      "global": "3 Países, 2 Continentes"
+      "global": "Auckland, NZ · Disponível Remotamente para EUA"
     }
   },
   "services": {
@@ -56,10 +56,10 @@
     }
   },
   "technologies": {
-    "badge": "Stack de Nível Empresarial",
-    "title": "Tecnologia de",
-    "titleHighlight": "Nível Empresarial",
-    "description": "Tecnologias modernas, escaláveis e testadas em batalha alimentando empresas Fortune 500",
+    "badge": "Stack Pronto para Produção",
+    "title": "Tecnologia",
+    "titleHighlight": "Profissional para o Seu Negócio",
+    "description": "Tecnologias modernas e confiáveis usadas por pequenas empresas de sucesso na Nova Zelândia e nos Estados Unidos",
     "items": {
       "nextjs": "Framework React empresarial",
       "typescript": "Desenvolvimento type-safe",
@@ -97,16 +97,16 @@
     ]
   },
   "cta": {
-    "badge": "🚀 Pronto para Começar?",
-    "title": "Pronto para Transformar Seu",
-    "titleHighlight": "Negócio?",
-    "description": "Comece hoje e transforme seu negócio com estratégias comprovadas de marketing digital que entregam resultados reais.",
-    "button": "Começar Agora",
-    "urgency": "Oferta por tempo limitado - Aja agora!",
+    "badge": "� Vamos Trabalhar Juntos",
+    "title": "Pronto para Construir Algo",
+    "titleHighlight": "Que Realmente Funciona?",
+    "description": "Seja uma pequena empresa na Nova Zelândia ou uma startup nos EUA buscando um desenvolvedor confiável — vamos conversar sobre construir algo ótimo juntos.",
+    "button": "Entre em Contato",
+    "urgency": "Consulta inicial grátis · Sem compromisso",
     "guarantees": [
-      "Garantia de reembolso de 30 dias",
-      "Suporte 24/7",
-      "Resultados em 30 dias"
+      "Baseado em Auckland, NZ",
+      "Clientes dos EUA são bem-vindos",
+      "Chamada de estratégia grátis"
     ]
   },
   "contact": {
