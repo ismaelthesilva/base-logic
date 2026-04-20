@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 npm run dev          # Next.js dev server
+npm run dev:all      # Dev + Vitest concurrently
 npm run dev:full     # Dev + Prisma Studio + Vitest concurrently
 ```
 
@@ -24,6 +25,7 @@ npm run lint:fix     # Auto-format with Prettier
 ```bash
 npm test             # Run Vitest once
 npm run test:watch   # Watch mode
+npm run test:ui      # Vitest UI
 npm run test:coverage # Coverage report (80% line/function threshold)
 ```
 
@@ -39,8 +41,10 @@ npx vitest run src/lib/investments.test.ts
 npm run db:migrate   # Run Prisma migrations
 npm run db:generate  # Regenerate Prisma client after schema changes
 npm run db:studio    # Open Prisma Studio UI
-npm run db:seed      # Seed database from prisma/seed.js
+npm run db:seed      # Seed database (tsx prisma/seed.ts)
 npm run db:push      # Push schema without migration (dev only)
+npm run db:migrate-exercises   # Migrate exercises data to DB
+npm run db:validate-exercises  # Validate exercise standardization
 ```
 
 ### Commits
@@ -70,7 +74,7 @@ src/
 
 ### Authentication
 
-Custom JWT auth using `jose` + `bcryptjs` — **not NextAuth**. Tokens are signed via `lib/auth.ts` (`signUserToken`, `verifyUserToken`). Despite `NEXTAUTH_URL` in `.env`, this codebase uses its own auth layer.
+Custom JWT auth using `jose` + `bcryptjs` — **not NextAuth**. Tokens are signed via `lib/auth.ts` (`signUserToken`, `verifyUserToken`). Despite `NEXTAUTH_URL` in `.env`, this codebase uses its own auth layer. There is no `middleware.ts` — route protection is enforced per API handler by verifying the JWT from cookies/headers.
 
 ### Internationalization
 
@@ -79,6 +83,8 @@ Context-based i18n (no i18next). `LanguageContext` in `src/contexts/` reads/writ
 ### Database
 
 Prisma 6 with Neon (serverless PostgreSQL). Key models: `User`, `Asset`, `Fundamentals`, `AssetPrice`, `Share`, `FinanceTransaction`. Schema at `prisma/schema.prisma`.
+
+Note: `Share` has its own denormalized fundamentals fields (separate from the `Asset`→`Fundamentals` relation) — used for a simpler watchlist flow.
 
 ### UI Components
 
@@ -102,12 +108,12 @@ NEXTAUTH_URL=       # http://localhost:3000 (used for URL building, not NextAuth
 
 ## Key Dependencies
 
-| Purpose    | Library                   |
-| ---------- | ------------------------- |
-| Forms      | react-hook-form + yup     |
-| HTTP       | axios                     |
-| PDF export | jsPDF + jspdf-autotable   |
-| CSV        | Papa Parse                |
-| Email      | EmailJS                   |
-| CAPTCHA    | @marsidev/react-turnstile |
-| AI         | openai                    |
+| Purpose    | Library                       |
+| ---------- | ----------------------------- |
+| Forms      | react-hook-form + yup, formik |
+| HTTP       | axios                         |
+| PDF export | jsPDF + jspdf-autotable       |
+| CSV        | Papa Parse                    |
+| Email      | EmailJS                       |
+| CAPTCHA    | @marsidev/react-turnstile     |
+| AI         | openai                        |

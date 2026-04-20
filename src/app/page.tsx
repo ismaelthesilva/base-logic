@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -32,21 +32,7 @@ import Footer from "@/components/Footer";
 import { DeveloperFooter } from "@/components/FooterDev";
 
 export default function Home() {
-  const [isClient, setIsClient] = useState(false);
-
-  // Safely use language context with fallback
-  let t = (key: string) => key; // Default fallback
-  try {
-    const context = useLanguage();
-    t = context.t;
-  } catch (error) {
-    // Context not available, use fallback
-    console.warn("LanguageContext not available, using fallback");
-  }
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const { t } = useLanguage();
 
   const technologiesStable = [
     {
@@ -180,12 +166,10 @@ export default function Home() {
               className="mx-auto mb-6 w-24 h-24 rounded-2xl shadow-lg"
             />
             <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 pb-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              {isClient ? t("hero.title") : "Engineered for Growth"}
+              {t("hero.title")}
             </h1>
             <p className="text-xl sm:text-2xl mb-8 leading-relaxed text-gray-200 font-medium">
-              {isClient
-                ? t("hero.description")
-                : "Helping small businesses in New Zealand and the US build web apps that actually grow your business \u2014 fast, reliable, and built to last."}
+              {t("hero.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button
@@ -194,7 +178,7 @@ export default function Home() {
                 className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-lg px-8 py-4 shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
               >
                 <Link href="/portfolio">
-                  {isClient ? t("hero.ctaPrimary") : "View Portfolio"}
+                  {t("hero.ctaPrimary")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -204,9 +188,7 @@ export default function Home() {
                 variant="outline"
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm"
               >
-                <Link href="/contact">
-                  {isClient ? t("hero.ctaSecondary") : "Book a Free Call"}
-                </Link>
+                <Link href="/contact">{t("hero.ctaSecondary")}</Link>
               </Button>
             </div>
             {/* Social Proof */}
@@ -214,29 +196,17 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-green-400" />
-                  <span>
-                    {isClient
-                      ? t("hero.socialProof.leadership")
-                      : "20+ Years Leadership Experience"}
-                  </span>
+                  <span>{t("hero.socialProof.leadership")}</span>
                 </div>
                 <div className="hidden sm:block h-6 w-px bg-white/30"></div>
                 <div className="flex items-center gap-2">
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <span>
-                    {isClient
-                      ? t("hero.socialProof.champion")
-                      : "2x World BJJ Champion"}
-                  </span>
+                  <span>{t("hero.socialProof.champion")}</span>
                 </div>
                 <div className="hidden sm:block h-6 w-px bg-white/30"></div>
                 <div className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-blue-400" />
-                  <span>
-                    {isClient
-                      ? t("hero.socialProof.global")
-                      : "Auckland, NZ · US Remote Available"}
-                  </span>
+                  <span>{t("hero.socialProof.global")}</span>
                 </div>
               </div>
             </div>
@@ -249,18 +219,16 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" suppressHydrationWarning={true}>
             <Badge className="mb-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-              {isClient ? t("services.badge") : "Core Services"}
+              {t("services.badge")}
             </Badge>
             <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">
-              {isClient ? t("services.title") : "Where Engineering Meets"}{" "}
+              {t("services.title")}{" "}
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                {isClient ? t("services.titleHighlight") : "Business Growth"}
+                {t("services.titleHighlight")}
               </span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-              {isClient
-                ? t("services.description")
-                : "Product engineering that combines technical excellence with business strategy"}
+              {t("services.description")}
             </p>
           </div>
 
@@ -276,17 +244,17 @@ export default function Home() {
                       {service.icon}
                     </div>
                     <CardTitle className="text-xl text-slate-900 dark:text-white">
-                      {isClient ? t(service.titleKey) : service.title}
+                      {t(service.titleKey)}
                     </CardTitle>
                   </div>
                   <CardDescription className="text-base leading-relaxed text-slate-600 dark:text-slate-300 text-center">
-                    {isClient ? t(service.descriptionKey) : service.description}
+                    {t(service.descriptionKey)}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2">
-                    {(isClient
-                      ? (t(service.featuresKey) as unknown as string[])
+                    {(Array.isArray(t(service.featuresKey))
+                      ? (t(service.featuresKey) as string[])
                       : service.features
                     ).map((feature: string, idx: number) => (
                       <li key={idx} className="flex items-center gap-2">
@@ -309,20 +277,16 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" suppressHydrationWarning={true}>
             <Badge className="mb-4 bg-gradient-to-r from-indigo-500 to-cyan-600 text-white">
-              {isClient ? t("technologies.badge") : "Production-Ready Stack"}
+              {t("technologies.badge")}
             </Badge>
             <h2 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">
-              {isClient ? t("technologies.title") : "Professional-Grade"}{" "}
+              {t("technologies.title")}{" "}
               <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                {isClient
-                  ? t("technologies.titleHighlight")
-                  : "Technology for Your Budget"}
+                {t("technologies.titleHighlight")}
               </span>
             </h2>
             <p className="text-xl text-slate-600 dark:text-slate-300">
-              {isClient
-                ? t("technologies.description")
-                : "Modern, reliable technologies used by successful teams across New Zealand and the United States"}
+              {t("technologies.description")}
             </p>
           </div>
 
@@ -354,14 +318,12 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16" suppressHydrationWarning={true}>
             <Badge className="mb-4 bg-gradient-to-r from-cyan-500 to-teal-600 text-white font-semibold">
-              {isClient ? t("testimonials.badge") : "⭐ Testimonials"}
+              {t("testimonials.badge")}
             </Badge>
             <h2 className="text-4xl font-bold mb-6 text-black dark:text-white">
-              {isClient ? t("testimonials.title") : "What Our Clients"}{" "}
+              {t("testimonials.title")}{" "}
               <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                {isClient
-                  ? t("testimonials.titleHighlight")
-                  : "Say About Working With Us"}
+                {t("testimonials.titleHighlight")}
               </span>
             </h2>
           </div>
@@ -427,18 +389,16 @@ export default function Home() {
           suppressHydrationWarning={true}
         >
           <Badge className="mb-6 bg-gradient-to-r from-indigo-500 to-cyan-600 text-white">
-            {isClient ? t("cta.badge") : "� Let's Work Together"}
+            {t("cta.badge")}
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-black dark:text-white">
-            {isClient ? t("cta.title") : "Ready to Build Something"}{" "}
+            {t("cta.title")}{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-cyan-500 bg-clip-text text-transparent">
-              {isClient ? t("cta.titleHighlight") : "That Actually Works?"}
+              {t("cta.titleHighlight")}
             </span>
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-slate-600 dark:text-slate-300">
-            {isClient
-              ? t("cta.description")
-              : "Whether you're a small business in New Zealand or a US-based startup looking for a reliable developer — let's talk about building something great together."}
+            {t("cta.description")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -446,19 +406,17 @@ export default function Home() {
               size="lg"
               className="bg-gradient-to-r from-indigo-600 to-cyan-700 hover:from-indigo-700 hover:to-cyan-800 text-white font-bold text-lg px-8 py-4 shadow-2xl hover:shadow-indigo-500/25 transition-all duration-300"
             >
-              {isClient ? t("cta.button") : "Get In Touch"}
+              {t("cta.button")}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <div className="text-sm text-slate-500 dark:text-slate-400">
-              {isClient
-                ? t("cta.urgency")
-                : "Free initial consultation · No obligation"}
+              {t("cta.urgency")}
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-slate-600 dark:text-slate-300">
-            {(isClient
-              ? (t("cta.guarantees") as unknown as string[])
+            {(Array.isArray(t("cta.guarantees"))
+              ? (t("cta.guarantees") as string[])
               : [
                   "Based in Auckland, NZ",
                   "US clients welcome",

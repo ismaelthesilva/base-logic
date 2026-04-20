@@ -2,7 +2,7 @@ name: Neon Database Backup
 
 on:
   schedule:
-    - cron: "0 14 */3 * *" # Every 3 days at 2am NZ
+    - cron: "0 14 * * *" # Every day at 2am NZ
   workflow_dispatch:
 
 jobs:
@@ -51,10 +51,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Keep only last 10 releases
+      - name: Keep last 30 releases
         uses: dev-drprasad/delete-older-releases@v0.3.4
         with:
-          keep_latest: 10
+          keep_latest: 30
           delete_tags: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
