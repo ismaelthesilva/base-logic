@@ -86,12 +86,16 @@ model Share {
   id             String   @id @default(cuid())
   symbol         String   @unique
   name           String
+  sector         String?
   receitaLiquida Float?
   lucroLiquido   Float?
   roe            Float?
   margemLiquida  Float?
   debitEbitda    Float?
+  ebitda         Float?
   dividendo      Float?
+  passesFilter   Boolean  @default(false)
+  period         String?
   notes          String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -100,6 +104,7 @@ model Share {
 model FinanceTransaction {
   id        String   @id @default(cuid())
   date      DateTime
+  category  String   @default("Expense")
   tag       String
   title     String
   currency  String   @default("USD")
@@ -108,4 +113,5 @@ model FinanceTransaction {
 
   @@index([tag])
   @@index([date])
+  @@index([category])
 }
