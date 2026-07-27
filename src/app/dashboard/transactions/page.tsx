@@ -182,7 +182,13 @@ function CsvImport({ onImported }: { onImported: () => void }) {
           setError("Empty CSV");
           return;
         }
-        setRows(result.data as any[]);
+        // Normalize all header keys to lowercase so column casing doesn't matter
+        const normalized = (result.data as any[]).map((row) =>
+          Object.fromEntries(
+            Object.entries(row).map(([k, v]) => [k.toLowerCase().trim(), v])
+          )
+        );
+        setRows(normalized);
       },
     });
   };
@@ -191,12 +197,25 @@ function CsvImport({ onImported }: { onImported: () => void }) {
     if (!rows.length) return;
     setLoading(true);
     const payload = rows.map((r: any) => ({
-      date: r.date,
+      // Support common bank CSV column aliases
+      date:
+        r.date ??
+        r["transaction date"] ??
+        r["trans date"] ??
+        r["posted date"] ??
+        r["value date"],
       category: r.category || undefined,
-      tag: r.tag || "",
-      title: r.title || r.description || "",
-      currency: r.currency || "USD",
-      amount: parseFloat(r.amount) || 0,
+      tag: r.tag || r.type || "",
+      title:
+        r.title ||
+        r.description ||
+        r.memo ||
+        r.merchant ||
+        r.name ||
+        r.narrative ||
+        "",
+      currency: r.currency || r.ccy || "USD",
+      amount: parseFloat(r.amount ?? r.debit ?? r.credit ?? 0) || 0,
     }));
     const res = await fetch("/api/finance/transactions", {
       method: "POST",
@@ -205,6 +224,15 @@ function CsvImport({ onImported }: { onImported: () => void }) {
     });
     setLoading(false);
     if (res.ok) {
+      const result = await res.json();
+      if (result.count === 0) {
+        setError(
+          `0 rows imported — CSV columns detected: ${Object.keys(
+            rows[0] ?? {}
+          ).join(", ")}. Expected: date, title/description, amount.`
+        );
+        return;
+      }
       setRows([]);
       if (fileRef.current) fileRef.current.value = "";
       onImported();
@@ -280,9 +308,9 @@ function CsvImport({ onImported }: { onImported: () => void }) {
       )}
       <p className="text-xs text-zinc-500">
         Expected columns:{" "}
-        <code className="text-zinc-400">
-          date, category, tag, title, currency, amount
-        </code>
+        <code className="text-zinc-400">date, amount, title</code> (also
+        accepts: description, memo, merchant, debit, credit — column names are
+        case-insensitive)
       </p>
     </div>
   );
@@ -292,6 +320,7 @@ function CsvImport({ onImported }: { onImported: () => void }) {
 
 export default function TransactionsPage() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [totalTxs, setTotalTxs] = useState(0);
   const [loading, setLoading] = useState(true);
   const [showAdd, setShowAdd] = useState(false);
   const [showImport, setShowImport] = useState(false);
@@ -312,7 +341,8 @@ export default function TransactionsPage() {
     if (filterMonth) params.set("month", filterMonth);
     const res = await fetch(`/api/finance/transactions?${params}`);
     const data = await res.json();
-    setTransactions(Array.isArray(data) ? data : []);
+    setTransactions(Array.isArray(data?.items) ? data.items : []);
+    setTotalTxs(data?.total ?? 0);
     setLoading(false);
   }, [filterCategory, filterTag, filterCurrency, filterMonth]);
 
@@ -353,9 +383,7 @@ export default function TransactionsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-white">Transactions</h1>
-          <p className="text-sm text-zinc-400 mt-1">
-            {transactions.length} records
-          </p>
+          <p className="text-sm text-zinc-400 mt-1">{totalTxs} records</p>
         </div>
         <div className="flex gap-2">
           <Button

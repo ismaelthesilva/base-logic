@@ -110,7 +110,7 @@ export default function OverviewPage() {
     ])
       .then(([s, txs, shares]) => {
         setStats(s);
-        setRecentTx(Array.isArray(txs) ? txs.slice(0, 10) : []);
+        setRecentTx(Array.isArray(txs?.items) ? txs.items.slice(0, 10) : []);
         setShareCount(Array.isArray(shares) ? shares.length : 0);
         setLoading(false);
       })

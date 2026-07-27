@@ -36,39 +36,50 @@ export async function POST(request: Request) {
   const body = await request.json();
 
   if (Array.isArray(body)) {
-    // Bulk upsert from CSV
-    const results = await Promise.all(
-      body
-        .filter((row) => row.symbol && row.name)
-        .map((row) => {
-          const data = {
-            symbol: String(row.symbol).toUpperCase().trim(),
-            name: String(row.name).trim(),
-            sector: row.sector ? String(row.sector).trim() : null,
-            receitaLiquida:
-              row.receitaLiquida != null ? Number(row.receitaLiquida) : null,
-            lucroLiquido:
-              row.lucroLiquido != null ? Number(row.lucroLiquido) : null,
-            roe: row.roe != null ? Number(row.roe) : null,
-            margemLiquida:
-              row.margemLiquida != null ? Number(row.margemLiquida) : null,
-            debitEbitda:
-              row.debitEbitda != null ? Number(row.debitEbitda) : null,
-            ebitda: row.ebitda != null ? Number(row.ebitda) : null,
-            dividendo: row.dividendo != null ? Number(row.dividendo) : null,
-            period: row.period ? String(row.period).trim() : null,
-            notes: row.notes ? String(row.notes).trim() : null,
-            passesFilter: false as boolean,
-          };
-          data.passesFilter = computePassesFilter(data);
-          return prisma.share.upsert({
+    // Bulk upsert from CSV — processed in a single transaction to avoid
+    // overwhelming Neon serverless with concurrent connections (E57P01).
+    const rows = body
+      .filter((row) => row.symbol && row.name)
+      .map((row) => {
+        const data = {
+          symbol: String(row.symbol).toUpperCase().trim(),
+          name: String(row.name).trim(),
+          sector: row.sector ? String(row.sector).trim() : null,
+          receitaLiquida:
+            row.receitaLiquida != null ? Number(row.receitaLiquida) : null,
+          lucroLiquido:
+            row.lucroLiquido != null ? Number(row.lucroLiquido) : null,
+          roe: row.roe != null ? Number(row.roe) : null,
+          margemLiquida:
+            row.margemLiquida != null ? Number(row.margemLiquida) : null,
+          debitEbitda: row.debitEbitda != null ? Number(row.debitEbitda) : null,
+          ebitda: row.ebitda != null ? Number(row.ebitda) : null,
+          dividendo: row.dividendo != null ? Number(row.dividendo) : null,
+          period: row.period ? String(row.period).trim() : null,
+          notes: row.notes ? String(row.notes).trim() : null,
+          passesFilter: false as boolean,
+        };
+        data.passesFilter = computePassesFilter(data);
+        return data;
+      });
+
+    const CHUNK_SIZE = 50;
+    let count = 0;
+    for (let i = 0; i < rows.length; i += CHUNK_SIZE) {
+      const chunk = rows.slice(i, i + CHUNK_SIZE);
+      await prisma.$transaction(
+        chunk.map((data) =>
+          prisma.share.upsert({
             where: { symbol: data.symbol },
             create: data,
             update: data,
-          });
-        })
-    );
-    return NextResponse.json({ count: results.length }, { status: 201 });
+          })
+        )
+      );
+      count += chunk.length;
+    }
+
+    return NextResponse.json({ count }, { status: 201 });
   }
 
   const {
