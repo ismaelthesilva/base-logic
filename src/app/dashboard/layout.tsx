@@ -33,8 +33,8 @@ function Sidebar({
   const pathname = usePathname();
 
   const handleLogout = async () => {
+    // Server clears the HttpOnly __session cookie; no localStorage to remove
     await fetch("/api/auth/logout", { method: "POST" });
-    localStorage.removeItem("authToken");
     window.location.href = "/auth/login";
   };
 

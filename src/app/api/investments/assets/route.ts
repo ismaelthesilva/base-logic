@@ -28,7 +28,7 @@ export async function GET(request: Request) {
     ];
   }
 
-  const assets = await (prisma as any).asset.findMany({
+  const assets = await prisma.asset.findMany({
     where,
     take: limit + 1,
     ...(cursor

@@ -35,9 +35,8 @@ export default function SignupPage() {
         return;
       }
 
-      if (data.token) {
-        localStorage.setItem("authToken", data.token);
-      }
+      // Session is now stored in an HttpOnly cookie set by the server.
+      // No token handling needed here.
       router.push("/dashboard");
     } catch (err) {
       console.error(err);

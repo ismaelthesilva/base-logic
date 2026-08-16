@@ -43,9 +43,8 @@ export default function LoginPage() {
         return;
       }
 
-      if (data.token) {
-        localStorage.setItem("authToken", data.token);
-      }
+      // Session is now stored in an HttpOnly cookie set by the server.
+      // No token handling needed here.
 
       // Redirect to dashboard or the originally requested page
       const redirectTo =

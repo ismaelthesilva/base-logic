@@ -1,43 +1,44 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-
-// Buffett criteria
-function computePassesFilter(data: {
-  roe?: number | null;
-  margemLiquida?: number | null;
-  debitEbitda?: number | null;
-  dividendo?: number | null;
-}): boolean {
-  const { roe, margemLiquida, debitEbitda, dividendo } = data;
-  return (
-    roe != null &&
-    roe >= 15 &&
-    margemLiquida != null &&
-    margemLiquida >= 15 &&
-    debitEbitda != null &&
-    debitEbitda <= 3 &&
-    dividendo != null &&
-    dividendo >= 10
-  );
-}
+import { getAuth, unauthorized } from "@/lib/api-auth";
+import { computePassesFilter } from "@/lib/shares"; // M4: single source of truth
 
 export async function GET(request: Request) {
+  // C1: Require authentication
+  const auth = await getAuth(request);
+  if (!auth) return unauthorized();
+
   const { searchParams } = new URL(request.url);
   const passesOnly = searchParams.get("passesFilter") === "true";
 
-  const shares = await prisma.share.findMany({
-    where: passesOnly ? { passesFilter: true } : undefined,
-    orderBy: { symbol: "asc" },
-  });
-  return NextResponse.json(shares);
+  try {
+    const shares = await prisma.share.findMany({
+      where: passesOnly ? { passesFilter: true } : undefined,
+      orderBy: { symbol: "asc" },
+    });
+    return NextResponse.json(shares);
+  } catch (err) {
+    console.error("[finance/shares GET]", err);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
 }
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  // C1: Require authentication
+  const auth = await getAuth(request);
+  if (!auth) return unauthorized();
+
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
+  }
 
   if (Array.isArray(body)) {
-    // Bulk upsert from CSV — processed in a single transaction to avoid
-    // overwhelming Neon serverless with concurrent connections (E57P01).
     const rows = body
       .filter((row) => row.symbol && row.name)
       .map((row) => {
@@ -56,48 +57,41 @@ export async function POST(request: Request) {
           ebitda: row.ebitda != null ? Number(row.ebitda) : null,
           dividendo: row.dividendo != null ? Number(row.dividendo) : null,
           period: row.period ? String(row.period).trim() : null,
-          notes: row.notes ? String(row.notes).trim() : null,
+          notes: row.notes ? String(row.notes).trim().slice(0, 1000) : null,
           passesFilter: false as boolean,
         };
-        data.passesFilter = computePassesFilter(data);
+        data.passesFilter = computePassesFilter(data); // M4: shared fn
         return data;
       });
 
-    const CHUNK_SIZE = 50;
-    let count = 0;
-    for (let i = 0; i < rows.length; i += CHUNK_SIZE) {
-      const chunk = rows.slice(i, i + CHUNK_SIZE);
-      await prisma.$transaction(
-        chunk.map((data) =>
-          prisma.share.upsert({
-            where: { symbol: data.symbol },
-            create: data,
-            update: data,
-          })
-        )
+    try {
+      const CHUNK_SIZE = 50;
+      let count = 0;
+      for (let i = 0; i < rows.length; i += CHUNK_SIZE) {
+        const chunk = rows.slice(i, i + CHUNK_SIZE);
+        await prisma.$transaction(
+          chunk.map((data) =>
+            prisma.share.upsert({
+              where: { symbol: data.symbol },
+              create: data,
+              update: data,
+            })
+          )
+        );
+        count += chunk.length;
+      }
+      return NextResponse.json({ count }, { status: 201 });
+    } catch (err) {
+      console.error("[finance/shares POST bulk]", err);
+      return NextResponse.json(
+        { error: "Internal server error" },
+        { status: 500 }
       );
-      count += chunk.length;
     }
-
-    return NextResponse.json({ count }, { status: 201 });
   }
 
-  const {
-    symbol,
-    name,
-    sector,
-    receitaLiquida,
-    lucroLiquido,
-    roe,
-    margemLiquida,
-    debitEbitda,
-    ebitda,
-    dividendo,
-    period,
-    notes,
-  } = body;
-
-  if (!symbol || !name) {
+  const row = body as Record<string, unknown>;
+  if (!row.symbol || !row.name) {
     return NextResponse.json(
       { error: "symbol and name are required" },
       { status: 400 }
@@ -105,27 +99,35 @@ export async function POST(request: Request) {
   }
 
   const data = {
-    symbol: String(symbol).toUpperCase().trim(),
-    name: String(name).trim(),
-    sector: sector ? String(sector).trim() : null,
-    receitaLiquida: receitaLiquida != null ? Number(receitaLiquida) : null,
-    lucroLiquido: lucroLiquido != null ? Number(lucroLiquido) : null,
-    roe: roe != null ? Number(roe) : null,
-    margemLiquida: margemLiquida != null ? Number(margemLiquida) : null,
-    debitEbitda: debitEbitda != null ? Number(debitEbitda) : null,
-    ebitda: ebitda != null ? Number(ebitda) : null,
-    dividendo: dividendo != null ? Number(dividendo) : null,
-    period: period ? String(period).trim() : null,
-    notes: notes ? String(notes).trim() : null,
+    symbol: String(row.symbol).toUpperCase().trim(),
+    name: String(row.name).trim(),
+    sector: row.sector ? String(row.sector).trim() : null,
+    receitaLiquida:
+      row.receitaLiquida != null ? Number(row.receitaLiquida) : null,
+    lucroLiquido: row.lucroLiquido != null ? Number(row.lucroLiquido) : null,
+    roe: row.roe != null ? Number(row.roe) : null,
+    margemLiquida: row.margemLiquida != null ? Number(row.margemLiquida) : null,
+    debitEbitda: row.debitEbitda != null ? Number(row.debitEbitda) : null,
+    ebitda: row.ebitda != null ? Number(row.ebitda) : null,
+    dividendo: row.dividendo != null ? Number(row.dividendo) : null,
+    period: row.period ? String(row.period).trim() : null,
+    notes: row.notes ? String(row.notes).trim().slice(0, 1000) : null,
     passesFilter: false as boolean,
   };
-  data.passesFilter = computePassesFilter(data);
+  data.passesFilter = computePassesFilter(data); // M4: shared fn
 
-  const share = await prisma.share.upsert({
-    where: { symbol: data.symbol },
-    create: data,
-    update: data,
-  });
-
-  return NextResponse.json(share, { status: 201 });
+  try {
+    const share = await prisma.share.upsert({
+      where: { symbol: data.symbol },
+      create: data,
+      update: data,
+    });
+    return NextResponse.json(share, { status: 201 });
+  } catch (err) {
+    console.error("[finance/shares POST]", err);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
+  }
 }
