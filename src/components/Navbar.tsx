@@ -35,17 +35,16 @@ const Navbar = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const check = () => setIsLoggedIn(!!localStorage.getItem("authToken"));
-    check();
-    window.addEventListener("storage", check);
-    return () => window.removeEventListener("storage", check);
+    // Derive login state from the HttpOnly cookie via the /api/auth/me endpoint
+    fetch("/api/auth/me")
+      .then((r) => setIsLoggedIn(r.ok))
+      .catch(() => setIsLoggedIn(false));
   }, []);
 
   const handleLogout = async () => {
     try {
       await fetch("/api/auth/logout", { method: "POST" });
     } catch {}
-    localStorage.removeItem("authToken");
     setIsLoggedIn(false);
     setIsOpen(false);
     router.push("/");
@@ -100,19 +99,9 @@ const Navbar = () => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Check if user is authenticated
-    const token =
-      typeof window !== "undefined" ? localStorage.getItem("authToken") : null;
-
-    console.log("🔐 Auth Check - Token exists:", !!token);
-
-    if (!token) {
-      // Redirect to login with return URL
-      console.log("❌ Not authenticated - Redirecting to login");
+    if (!isLoggedIn) {
       router.push(`/auth/login?redirectTo=${href}`);
     } else {
-      // Navigate to the protected route
-      console.log("✅ Authenticated - Going to:", href);
       router.push(href);
     }
   };

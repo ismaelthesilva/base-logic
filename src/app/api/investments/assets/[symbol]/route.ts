@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { Country } from "@prisma/client";
+import { getAuth, unauthorized } from "@/lib/api-auth";
 
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ symbol: string }> }
 ) {
+  const auth = await getAuth(request);
+  if (!auth) return unauthorized();
+
   const { symbol } = await params;
   const { searchParams } = new URL(request.url);
   const countryParam = searchParams.get("country");

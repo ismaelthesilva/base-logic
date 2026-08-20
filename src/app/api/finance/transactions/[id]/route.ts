@@ -33,6 +33,15 @@ export async function PUT(
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
+    if (date !== undefined) {
+      const d = new Date(date as string);
+      if (isNaN(d.getTime()))
+        return NextResponse.json(
+          { error: "date: invalid date" },
+          { status: 422 }
+        );
+    }
+
     const tx = await prisma.financeTransaction.update({
       where: { id },
       data: {

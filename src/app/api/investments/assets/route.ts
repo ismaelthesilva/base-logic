@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { getAuth, unauthorized } from "@/lib/api-auth";
 
 const MAX_LIMIT = 200;
 
 export async function GET(request: Request) {
+  const auth = await getAuth(request);
+  if (!auth) return unauthorized();
+
   const { searchParams } = new URL(request.url);
   const country = searchParams.get("country");
   const type = searchParams.get("type");

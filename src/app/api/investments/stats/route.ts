@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { getAuth, unauthorized } from "@/lib/api-auth";
 
-export async function GET() {
+export async function GET(request: Request) {
+  const auth = await getAuth(request);
+  if (!auth) return unauthorized();
+
   const [total, usa, brazil, stocks, etfs, reits] = await Promise.all([
     prisma.asset.count(),
     prisma.asset.count({ where: { country: "USA" } }),
