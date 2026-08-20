@@ -1,30 +1,24 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { verifyUserToken } from "@/lib/auth";
+import { getAuth, unauthorized } from "@/lib/api-auth";
 
 export async function GET(request: Request) {
-  const auth = request.headers.get("authorization") || "";
-  const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
-
-  if (!token) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const auth = await getAuth(request);
+  if (!auth) return unauthorized();
 
   try {
-    const { userId } = await verifyUserToken(token);
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const user = await prisma.user.findUnique({ where: { id: userId } });
+    const user = await prisma.user.findUnique({ where: { id: auth.userId } });
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
-
     return NextResponse.json({
       user: { id: user.id, email: user.email, name: user.name },
     });
-  } catch (error) {
-    return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+  } catch (err) {
+    console.error("[auth/me]", err);
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

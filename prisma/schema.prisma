@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 enum Country {
@@ -22,12 +23,13 @@ enum AssetType {
 }
 
 model User {
-  id           String   @id @default(cuid())
-  email        String   @unique
+  id           String               @id @default(cuid())
+  email        String               @unique
   passwordHash String
   name         String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  transactions FinanceTransaction[]
 }
 
 model Asset {
@@ -86,12 +88,16 @@ model Share {
   id             String   @id @default(cuid())
   symbol         String   @unique
   name           String
+  sector         String?
   receitaLiquida Float?
   lucroLiquido   Float?
   roe            Float?
   margemLiquida  Float?
   debitEbitda    Float?
+  ebitda         Float?
   dividendo      Float?
+  passesFilter   Boolean  @default(false)
+  period         String?
   notes          String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -99,13 +105,22 @@ model Share {
 
 model FinanceTransaction {
   id        String   @id @default(cuid())
+  // Nullable for migration compatibility with pre-auth records.
+  // New records always include userId (enforced at the application layer).
+  // Run: npm run db:migrate after this schema change.
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
   date      DateTime
+  category  String   @default("Expense")
   tag       String
   title     String
   currency  String   @default("USD")
   amount    Float
   createdAt DateTime @default(now())
 
+  @@index([userId])
+  @@index([userId, date])
   @@index([tag])
   @@index([date])
+  @@index([category])
 }

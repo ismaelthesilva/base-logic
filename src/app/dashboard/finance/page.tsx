@@ -519,7 +519,8 @@ export default function FinanceDashboardPage() {
   const loadTransactions = useCallback(async () => {
     setTxLoading(true);
     const res = await fetch("/api/finance/transactions");
-    setTransactions(await res.json());
+    const data = await res.json();
+    setTransactions(Array.isArray(data?.items) ? data.items : []);
     setTxLoading(false);
   }, []);
 
@@ -598,6 +599,7 @@ export default function FinanceDashboardPage() {
     Papa.parse(file, {
       header: true,
       skipEmptyLines: true,
+      transformHeader: (header) => header.replace(/^﻿/, "").trim(),
       complete: async (result) => {
         const rows = (result.data as Record<string, string>[]).map((row) => ({
           date: row["Date"] || row["date"] || "",
@@ -615,7 +617,14 @@ export default function FinanceDashboardPage() {
             row["currency"] ||
             "USD",
           amount: parseFloat(
-            (row["$"] || row["amount"] || "0").replace(",", ".")
+            (
+              row["$"] ||
+              row["Amount"] ||
+              row["amount"] ||
+              row["Ammount"] ||
+              row["ammount"] ||
+              "0"
+            ).replace(",", ".")
           ),
         }));
 

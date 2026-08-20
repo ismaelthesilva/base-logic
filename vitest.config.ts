@@ -20,6 +20,9 @@ export default defineConfig({
         "src/lib/auth.ts",
         "src/lib/csv-utils.ts",
         "src/lib/utils.ts",
+        "src/lib/api-auth.ts",
+        "src/lib/rate-limit.ts",
+        "src/lib/shares.ts",
       ],
       thresholds: {
         lines: 80,

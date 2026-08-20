@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { formatCurrency, formatNumber, formatPercent } from "./format";
+import {
+  formatCurrency,
+  formatLargeNumber,
+  formatNumber,
+  formatPercent,
+} from "./format";
 
 describe("formatNumber", () => {
   it("returns — for null", () => {
@@ -93,5 +98,45 @@ describe("formatPercent", () => {
 
   it("handles negative percents", () => {
     expect(formatPercent(-5.5)).toBe("-5.5%");
+  });
+});
+
+describe("formatLargeNumber", () => {
+  it("returns — for null", () => {
+    expect(formatLargeNumber(null)).toBe("—");
+  });
+
+  it("returns — for undefined", () => {
+    expect(formatLargeNumber(undefined)).toBe("—");
+  });
+
+  it("returns — for NaN", () => {
+    expect(formatLargeNumber(NaN)).toBe("—");
+  });
+
+  it("formats billions", () => {
+    expect(formatLargeNumber(1_500_000_000)).toBe("1.5B");
+    expect(formatLargeNumber(2_000_000_000)).toBe("2.0B");
+  });
+
+  it("formats millions", () => {
+    expect(formatLargeNumber(1_500_000)).toBe("1.5M");
+    expect(formatLargeNumber(500_000_000)).toBe("500.0M");
+  });
+
+  it("formats thousands", () => {
+    expect(formatLargeNumber(1_500)).toBe("1.5K");
+    expect(formatLargeNumber(999_999)).toBe("1000.0K");
+  });
+
+  it("formats small numbers", () => {
+    expect(formatLargeNumber(0)).toBe("0");
+    expect(formatLargeNumber(999)).toBe("999");
+  });
+
+  it("handles negative values", () => {
+    expect(formatLargeNumber(-1_500_000)).toBe("-1.5M");
+    expect(formatLargeNumber(-1_500)).toBe("-1.5K");
+    expect(formatLargeNumber(-500)).toBe("-500");
   });
 });
